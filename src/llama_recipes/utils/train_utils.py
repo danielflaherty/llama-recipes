@@ -7,8 +7,9 @@ import yaml
 from contextlib import nullcontext
 from pathlib import Path
 from pkg_resources import packaging
-
-
+import wandb
+from dataclasses import dataclass, asdict
+import math
 import torch
 import torch.cuda.nccl as nccl
 import torch.distributed as dist
@@ -31,7 +32,14 @@ def set_tokenizer_params(tokenizer: LlamaTokenizer):
 def byte2mb(x):
     return int(x / 2**20)
 
-def train(model, train_dataloader,eval_dataloader, tokenizer, optimizer, lr_scheduler, gradient_accumulation_steps, train_config, fsdp_config=None, local_rank=None, rank=None):
+def wandb_watch(model, train_config, fsdp_config=None, rank=None):
+    run = wandb.init(project=train_config.wandb_project,
+                    name=train_config.wandb_run_name,
+                    config=asdict(train_config) if fsdp_config is None else {**asdict(train_config), **asdict(fsdp_config)})
+    run.watch(model)
+    return run
+
+def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_scheduler, gradient_accumulation_steps, train_config, fsdp_config=None, local_rank=None, rank=None):
     """
     Trains the model on the given dataloader
 
@@ -66,11 +74,16 @@ def train(model, train_dataloader,eval_dataloader, tokenizer, optimizer, lr_sche
     checkpoint_times = []
     results = {}
     best_val_loss = float("inf")
+    
+    # wandb setuo
+    n_steps_per_epoch = math.ceil(len(train_dataloader.dataset) / train_config.batch_size_training)
+    if train_config.enable_fsdp and rank == 0:
+        wandb_watch(model, train_config, fsdp_config, rank)
     for epoch in range(train_config.num_epochs):
         epoch_start_time = time.perf_counter()
         with MemoryTrace() as memtrace:  # track the memory usage
             model.train()
-            total_loss = 0.0
+            total_loss = torch.tensor(0.0).cuda()
             total_length = len(train_dataloader)//gradient_accumulation_steps
             pbar = tqdm(colour="blue", desc=f"Training Epoch: {epoch+1}", total=total_length, dynamic_ncols=True)
             for step, batch in enumerate(train_dataloader):
@@ -97,8 +110,20 @@ def train(model, train_dataloader,eval_dataloader, tokenizer, optimizer, lr_sche
                     if (step + 1) % gradient_accumulation_steps == 0 or step == len(train_dataloader) - 1:
                         optimizer.step()
                         optimizer.zero_grad()
-                        pbar.update(1)
-
+                # Log to wandb
+                pbar.update(1)
+                loss = loss.detach().float()
+                if torch.cuda.device_count() > 1 and train_config.enable_fsdp:
+                        dist.all_reduce(loss, op=dist.ReduceOp.SUM)
+                loss = loss / torch.cuda.device_count()
+                if rank == 0 and step % train_config.logging_steps == 0:
+                    metrics = {"train/train_loss:": loss, 
+                               "train/train_perplexity": torch.exp(loss),
+                                "train/epoch": (step + 1 + (n_steps_per_epoch * epoch)) / n_steps_per_epoch,
+                                "train/global_step": step + 1 + (n_steps_per_epoch * epoch),
+                                "train/lr": optimizer.param_groups[0]['lr'],
+                              }
+                    wandb.log(metrics)
                 pbar.set_description(f"Training Epoch: {epoch+1}/{train_config.num_epochs}, step {step}/{len(train_dataloader)} completed (loss: {loss.detach().float()})")
             pbar.close()
 
@@ -135,7 +160,8 @@ def train(model, train_dataloader,eval_dataloader, tokenizer, optimizer, lr_sche
         if train_config.run_validation:
             eval_ppl, eval_epoch_loss = evaluation(model, train_config, eval_dataloader, local_rank, tokenizer)
             checkpoint_start_time = time.perf_counter()
-            if train_config.save_model and eval_epoch_loss < best_val_loss:
+            # if train_config.save_model and eval_epoch_loss < best_val_loss:
+            if train_config.save_model:
                 if train_config.enable_fsdp:
                     dist.barrier()
                 if train_config.use_peft:
@@ -153,7 +179,6 @@ def train(model, train_dataloader,eval_dataloader, tokenizer, optimizer, lr_sche
 
                 else:
                     if not train_config.use_peft and fsdp_config.checkpoint_type == StateDictType.FULL_STATE_DICT:
-
                         save_model_checkpoint(
                             model, optimizer, rank, train_config, epoch=epoch
                         )
@@ -167,7 +192,7 @@ def train(model, train_dataloader,eval_dataloader, tokenizer, optimizer, lr_sche
                             print(" Saving the FSDP model checkpoints and optimizer using SHARDED_STATE_DICT")
                             print("=====================================================")
 
-                    if not train_config.use_peft and  train_config.save_optimizer:
+                    if not train_config.use_peft and train_config.save_optimizer:
                         save_optimizer_checkpoint(
                             model, optimizer, rank, train_config, epoch=epoch
                         )
@@ -184,13 +209,16 @@ def train(model, train_dataloader,eval_dataloader, tokenizer, optimizer, lr_sche
                         print(f"best eval loss on epoch {epoch+1} is {best_val_loss}")
                 else:
                     print(f"best eval loss on epoch {epoch+1} is {best_val_loss}")
-            val_loss.append(best_val_loss)
+            # val_loss.append(best_val_loss)
+            val_loss.append(eval_epoch_loss)
             val_prep.append(eval_ppl)
+            if (train_config.enable_fsdp and rank == 0) or not train_config.enable_fsdp:
+                wandb.log({'epoch': epoch+1, 'eval/epoch_loss': eval_epoch_loss, 'eval/perplexity': eval_ppl})
         if train_config.enable_fsdp:
             if rank==0:
-                print(f"Epoch {epoch+1}: train_perplexity={train_perplexity:.4f}, train_epoch_loss={train_epoch_loss:.4f}, epoch time {epoch_end_time}s")
+                print(f"Epoch {epoch+1}: train_perplexity={float(train_perplexity):.4f}, train_epoch_loss={float(train_epoch_loss):.4f}, epoch time {float(epoch_end_time)}s")
         else:
-            print(f"Epoch {epoch+1}: train_perplexity={train_perplexity:.4f}, train_epoch_loss={train_epoch_loss:.4f}, epoch time {epoch_end_time}s")
+            print(f"Epoch {epoch+1}: train_perplexity={float(train_perplexity):.4f}, train_epoch_loss={float(train_epoch_loss):.4f}, epoch time {float(epoch_end_time)}s")
     avg_epoch_time = sum(epoch_times)/ len(epoch_times)
     avg_checkpoint_time = sum(checkpoint_times)/ len(checkpoint_times) if len(checkpoint_times) > 0 else 0
     avg_train_prep = sum(train_prep)/len(train_prep)
@@ -210,6 +238,8 @@ def train(model, train_dataloader,eval_dataloader, tokenizer, optimizer, lr_sche
     #saving the training params including fsdp setting for reference.
     if train_config.enable_fsdp and not train_config.use_peft:
         save_train_params(train_config, fsdp_config, rank)
+        
+    wandb.finish()
 
     return results
 

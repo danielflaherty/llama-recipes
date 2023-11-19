@@ -65,7 +65,7 @@ def generate_dataset_config(train_config, kwargs):
 
     update_config(dataset_config, **kwargs)
 
-    return  dataset_config
+    return dataset_config
 
 
 def get_dataloader_kwargs(train_config, dataset, tokenizer, mode):

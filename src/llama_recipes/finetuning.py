@@ -3,10 +3,11 @@
 
 import os
 from pkg_resources import packaging
-
+import wandb
 import fire
 import random
 import torch
+from dataclasses import dataclass, asdict
 import torch.optim as optim
 from peft import get_peft_model, prepare_model_for_int8_training
 from torch.distributed.fsdp import (
@@ -25,7 +26,7 @@ from llama_recipes.configs import fsdp_config as FSDP_CONFIG
 from llama_recipes.configs import train_config as TRAIN_CONFIG
 from llama_recipes.data.concatenator import ConcatDataset
 from llama_recipes.policies import AnyPrecisionAdamW, apply_fsdp_checkpointing
-
+from datasets import Dataset
 from llama_recipes.utils import fsdp_auto_wrap_policy
 from llama_recipes.utils.config_utils import (
     update_config,
@@ -48,6 +49,9 @@ from llama_recipes.utils.train_utils import (
 
 def main(**kwargs):
     # Update the configuration for the training and sharding process
+    os.environ['HF_HOME'] = "/mnt/checkpoints_disk/huggingface_cache"
+    os.environ["TRANSFORMERS_CACHE"] = "/mnt/checkpoints_disk/transformers_cache"
+    os.environ["HF_DATASETS_CACHE"] = "/mnt/checkpoints_disk/hf_datasets_cache"
     train_config, fsdp_config = TRAIN_CONFIG(), FSDP_CONFIG()
     update_config((train_config, fsdp_config), **kwargs)
 
@@ -194,8 +198,8 @@ def main(**kwargs):
 
     eval_dataloader = None
     if train_config.run_validation:
-        if train_config.batching_strategy == "packing":
-            dataset_val = ConcatDataset(dataset_val, chunk_size=train_config.context_length)
+        # if train_config.batching_strategy == "packing":
+        #     dataset_val = ConcatDataset(dataset_val, chunk_size=train_config.context_length)
 
         val_dl_kwargs = get_dataloader_kwargs(train_config, dataset_val, tokenizer, "val")
 

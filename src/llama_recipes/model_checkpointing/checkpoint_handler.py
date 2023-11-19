@@ -5,6 +5,7 @@ from pathlib import Path
 from datetime import datetime
 import torch
 import time
+import os 
 
 from torch.distributed.fsdp import (
     FullyShardedDataParallel as FSDP,
@@ -217,7 +218,8 @@ def save_optimizer_checkpoint(model, optimizer, rank, cfg, epoch=1):
             "optimizer" + "-" + cfg.model_name + "-" + str(epoch) + ".pt"
         )
         opt_save_full_path = save_dir / opt_save_name
-
+        if not os.path.exists(os.path.dirname(opt_save_full_path)):
+            os.mkdir(os.path.dirname(opt_save_full_path)) 
         print(f"--> saving optimizer state...")
 
         torch.save(optim_state, opt_save_full_path)

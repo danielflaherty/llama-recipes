@@ -32,3 +32,13 @@ class custom_dataset:
     file: str = "examples/custom_dataset.py"
     train_split: str = "train"
     test_split: str = "validation"
+    
+@dataclass
+class wiki_india_dataset:
+    dataset: str = "wiki_india_dataset"
+    train_split: str = "train"
+    test_split: str = "validation"
+    train_data_path: str = "/home/danielflaherty/upsc-gpt-data/train_data/wiki_india.txt"
+    train_data_packing: bool = True
+    eval_data_path: str = "/home/danielflaherty/upsc-gpt-data/eval_data/PYQ_2022.json"
+    eval_data_prefix_path: str = "/home/danielflaherty/upsc-gpt-data/eval_data/prompts/5_shot.txt"

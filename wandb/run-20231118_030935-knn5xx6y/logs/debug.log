@@ -1,0 +1,26 @@
+2023-11-18 03:09:35,203 INFO    MainThread:1340948 [wandb_setup.py:_flush():76] Current SDK version is 0.16.0
+2023-11-18 03:09:35,203 INFO    MainThread:1340948 [wandb_setup.py:_flush():76] Configure stats pid to 1340948
+2023-11-18 03:09:35,203 INFO    MainThread:1340948 [wandb_setup.py:_flush():76] Loading settings from /home/danielflaherty/.config/wandb/settings
+2023-11-18 03:09:35,203 INFO    MainThread:1340948 [wandb_setup.py:_flush():76] Loading settings from /home/danielflaherty/llama-recipes/wandb/settings
+2023-11-18 03:09:35,203 INFO    MainThread:1340948 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2023-11-18 03:09:35,203 INFO    MainThread:1340948 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-11-18 03:09:35,203 INFO    MainThread:1340948 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'examples/finetuning.py', 'program_abspath': '/home/danielflaherty/llama-recipes/examples/finetuning.py', 'program': '/home/danielflaherty/llama-recipes/examples/finetuning.py'}
+2023-11-18 03:09:35,203 INFO    MainThread:1340948 [wandb_init.py:_log_setup():524] Logging user logs to /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-knn5xx6y/logs/debug.log
+2023-11-18 03:09:35,204 INFO    MainThread:1340948 [wandb_init.py:_log_setup():525] Logging internal logs to /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-knn5xx6y/logs/debug-internal.log
+2023-11-18 03:09:35,204 INFO    MainThread:1340948 [wandb_init.py:init():564] calling init triggers
+2023-11-18 03:09:35,204 INFO    MainThread:1340948 [wandb_init.py:init():571] wandb.init called with sweep_config: {}
+config: {'model_name': 'NousResearch/Llama-2-7b-hf', 'enable_fsdp': True, 'low_cpu_fsdp': False, 'run_validation': True, 'batch_size_training': 4, 'batching_strategy': 'packing', 'context_length': 4096, 'gradient_accumulation_steps': 1, 'num_epochs': 3, 'num_workers_dataloader': 1, 'lr': 0.0001, 'weight_decay': 0.0, 'gamma': 0.85, 'seed': 42, 'use_fp16': False, 'mixed_precision': True, 'val_batch_size': 1, 'peft_method': 'None', 'use_peft': False, 'output_dir': '/mnt/checkpoints_disk/wiki-india-run-2/model', 'freeze_layers': False, 'num_freeze_layers': 1, 'quantization': False, 'one_gpu': False, 'save_model': True, 'dist_checkpoint_root_folder': '/mnt/checkpoints_disk/wiki-india-run-2/FSDP/model', 'dist_checkpoint_folder': 'ft-model', 'save_optimizer': True, 'use_fast_kernels': True, 'wandb_project': 'llama-7b-full-ft-3', 'wandb_run_name': 'wiki-india-run-2', 'logging_steps': 25, 'sharding_strategy': <ShardingStrategy.FULL_SHARD: 1>, 'checkpoint_type': <StateDictType.SHARDED_STATE_DICT: 3>, 'fsdp_activation_checkpointing': True, 'fsdp_cpu_offload': False, 'pure_bf16': True, 'optimizer': 'AdamW'}
+2023-11-18 03:09:35,204 INFO    MainThread:1340948 [wandb_init.py:init():614] starting backend
+2023-11-18 03:09:35,204 INFO    MainThread:1340948 [wandb_init.py:init():618] setting up manager
+2023-11-18 03:09:35,205 INFO    MainThread:1340948 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-11-18 03:09:35,206 INFO    MainThread:1340948 [wandb_init.py:init():624] backend started and connected
+2023-11-18 03:09:35,209 INFO    MainThread:1340948 [wandb_init.py:init():716] updated telemetry
+2023-11-18 03:09:35,213 INFO    MainThread:1340948 [wandb_init.py:init():749] communicating run to backend with 90.0 second timeout
+2023-11-18 03:09:35,733 INFO    MainThread:1340948 [wandb_run.py:_on_init():2254] communicating current version
+2023-11-18 03:09:35,780 INFO    MainThread:1340948 [wandb_run.py:_on_init():2263] got version response 
+2023-11-18 03:09:35,781 INFO    MainThread:1340948 [wandb_init.py:init():800] starting run threads in backend
+2023-11-18 03:09:46,211 INFO    MainThread:1340948 [wandb_run.py:_console_start():2233] atexit reg
+2023-11-18 03:09:46,211 INFO    MainThread:1340948 [wandb_run.py:_redirect():2088] redirect: wrap_raw
+2023-11-18 03:09:46,211 INFO    MainThread:1340948 [wandb_run.py:_redirect():2153] Wrapping output streams.
+2023-11-18 03:09:46,211 INFO    MainThread:1340948 [wandb_run.py:_redirect():2178] Redirects installed.
+2023-11-18 03:09:46,212 INFO    MainThread:1340948 [wandb_init.py:init():841] run started, returning control to user process

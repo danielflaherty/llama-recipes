@@ -4,13 +4,14 @@
 import importlib
 from functools import partial
 from pathlib import Path
-
+import json
 import torch
 
 from llama_recipes.datasets import (
     get_grammar_dataset,
     get_alpaca_dataset,
     get_samsum_dataset,
+    get_wiki_india_dataset, 
 )
 
 
@@ -54,6 +55,7 @@ DATASET_PREPROC = {
     "grammar_dataset": get_grammar_dataset,
     "samsum_dataset": get_samsum_dataset,
     "custom_dataset": get_custom_dataset,
+    "wiki_india_dataset": get_wiki_india_dataset
 }
 
 
@@ -75,3 +77,15 @@ def get_preprocessed_dataset(
         tokenizer,
         get_split(),
     )
+    
+def preprocess_text_file(input_file, output_file):
+    with open(input_file, 'r', encoding='utf-8') as file:
+        content = file.read()
+    articles = content.split('\n\n')  # Splitting based on two newlines
+
+    # Writing to a new JSONL file
+    with open(output_file, 'w', encoding='utf-8') as out_file:
+        for article in articles:
+            if article.strip():  # Ensure the article is not just whitespace
+                json_record = json.dumps({"text": article})  # Create a JSON string
+                out_file.write(json_record + '\n')  # Write JSON string as a new line

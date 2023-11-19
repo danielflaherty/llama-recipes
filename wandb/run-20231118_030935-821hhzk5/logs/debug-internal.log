@@ -1,0 +1,1265 @@
+2023-11-18 03:09:35,113 INFO    StreamThr :1341167 [internal.py:wandb_internal():86] W&B internal server running at pid: 1341167, started at: 2023-11-18 03:09:35.112929
+2023-11-18 03:09:35,115 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status
+2023-11-18 03:09:35,117 INFO    WriterThread:1341167 [datastore.py:open_for_write():85] open: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/run-821hhzk5.wandb
+2023-11-18 03:09:35,118 DEBUG   SenderThread:1341167 [sender.py:send():380] send: header
+2023-11-18 03:09:35,120 DEBUG   SenderThread:1341167 [sender.py:send():380] send: run
+2023-11-18 03:09:35,668 INFO    SenderThread:1341167 [dir_watcher.py:__init__():211] watching files in: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files
+2023-11-18 03:09:35,668 INFO    SenderThread:1341167 [sender.py:_start_run_threads():1124] run started: 821hhzk5 with start time 1700276975.112658
+2023-11-18 03:09:35,676 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: check_version
+2023-11-18 03:09:35,676 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: check_version
+2023-11-18 03:09:35,731 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: run_start
+2023-11-18 03:09:35,750 DEBUG   HandlerThread:1341167 [system_info.py:__init__():32] System info init
+2023-11-18 03:09:35,750 DEBUG   HandlerThread:1341167 [system_info.py:__init__():47] System info init done
+2023-11-18 03:09:35,750 INFO    HandlerThread:1341167 [system_monitor.py:start():194] Starting system monitor
+2023-11-18 03:09:35,751 INFO    SystemMonitor:1341167 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2023-11-18 03:09:35,751 INFO    HandlerThread:1341167 [system_monitor.py:probe():214] Collecting system info
+2023-11-18 03:09:35,752 INFO    SystemMonitor:1341167 [interfaces.py:start():190] Started cpu monitoring
+2023-11-18 03:09:35,752 INFO    SystemMonitor:1341167 [interfaces.py:start():190] Started disk monitoring
+2023-11-18 03:09:35,753 INFO    SystemMonitor:1341167 [interfaces.py:start():190] Started gpu monitoring
+2023-11-18 03:09:35,754 INFO    SystemMonitor:1341167 [interfaces.py:start():190] Started memory monitoring
+2023-11-18 03:09:35,755 INFO    SystemMonitor:1341167 [interfaces.py:start():190] Started network monitoring
+2023-11-18 03:09:35,880 DEBUG   HandlerThread:1341167 [system_info.py:probe():196] Probing system
+2023-11-18 03:09:35,882 DEBUG   HandlerThread:1341167 [system_info.py:_probe_git():181] Probing git
+2023-11-18 03:09:35,887 DEBUG   HandlerThread:1341167 [system_info.py:_probe_git():189] Probing git done
+2023-11-18 03:09:35,888 DEBUG   HandlerThread:1341167 [system_info.py:probe():244] Probing system done
+2023-11-18 03:09:35,888 DEBUG   HandlerThread:1341167 [system_monitor.py:probe():223] {'os': 'Linux-5.10.0-26-cloud-amd64-x86_64-with-glibc2.31', 'python': '3.10.13', 'heartbeatAt': '2023-11-18T03:09:35.880177', 'startedAt': '2023-11-18T03:09:35.105276', 'docker': None, 'cuda': None, 'args': ('--enable_fsdp', '--dataset', 'custom_dataset', '--fsdp_config.pure_bf16'), 'state': 'running', 'program': '/home/danielflaherty/llama-recipes/examples/finetuning.py', 'codePathLocal': 'examples/finetuning.py', 'codePath': 'examples/finetuning.py', 'git': {'remote': 'https://github.com/danielflaherty/llama-recipes', 'commit': '38df368a70c292db6e42e0f275139678497fd896'}, 'email': None, 'root': '/home/danielflaherty/llama-recipes', 'host': 'a100-40gb-8x', 'username': 'danielflaherty', 'executable': '/opt/conda/bin/python3.10', 'cpu_count': 48, 'cpu_count_logical': 96, 'cpu_freq': {'current': 2200.223999999996, 'min': 0.0, 'max': 0.0}, 'cpu_freq_per_core': [{'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}, {'current': 2200.224, 'min': 0.0, 'max': 0.0}], 'disk': {'/': {'total': 48.97825241088867, 'used': 36.92502212524414}}, 'gpu': 'NVIDIA A100-SXM4-40GB', 'gpu_count': 8, 'gpu_devices': [{'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}, {'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}, {'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}, {'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}, {'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}, {'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}, {'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}, {'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}], 'memory': {'total': 669.256664276123}}
+2023-11-18 03:09:35,888 INFO    HandlerThread:1341167 [system_monitor.py:probe():224] Finished collecting system info
+2023-11-18 03:09:35,888 INFO    HandlerThread:1341167 [system_monitor.py:probe():227] Publishing system info
+2023-11-18 03:09:35,888 DEBUG   HandlerThread:1341167 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2023-11-18 03:09:35,888 DEBUG   HandlerThread:1341167 [system_info.py:_save_pip():68] Saving pip packages done
+2023-11-18 03:09:35,888 DEBUG   HandlerThread:1341167 [system_info.py:_save_conda():75] Saving list of conda packages installed into the current environment
+2023-11-18 03:09:36,669 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_created():271] file/dir created: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/requirements.txt
+2023-11-18 03:09:36,670 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_created():271] file/dir created: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/conda-environment.yaml
+2023-11-18 03:09:45,671 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/conda-environment.yaml
+2023-11-18 03:09:45,920 DEBUG   HandlerThread:1341167 [system_info.py:_save_conda():87] Saving conda packages done
+2023-11-18 03:09:45,922 INFO    HandlerThread:1341167 [system_monitor.py:probe():229] Finished publishing system info
+2023-11-18 03:09:45,923 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:09:45,924 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: keepalive
+2023-11-18 03:09:45,924 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:09:45,925 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: keepalive
+2023-11-18 03:09:45,925 DEBUG   SenderThread:1341167 [sender.py:send():380] send: files
+2023-11-18 03:09:45,925 INFO    SenderThread:1341167 [sender.py:_save_file():1380] saving file wandb-metadata.json with policy now
+2023-11-18 03:09:45,930 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:09:45,930 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:09:45,932 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:09:46,243 DEBUG   SenderThread:1341167 [sender.py:send():380] send: telemetry
+2023-11-18 03:09:46,594 INFO    wandb-upload_0:1341167 [upload_job.py:push():131] Uploaded file /mnt/checkpoints_disk/tmp/tmp4yif68vdwandb/lk0s8zp0-wandb-metadata.json
+2023-11-18 03:09:46,671 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_created():271] file/dir created: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/wandb-metadata.json
+2023-11-18 03:09:51,245 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:09:56,246 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:10:00,931 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:10:00,931 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:10:00,973 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:10:02,223 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:10:07,228 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:10:07,679 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/config.yaml
+2023-11-18 03:10:12,460 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:10:15,931 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:10:15,931 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:10:15,932 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:10:18,133 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:10:23,135 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:10:28,136 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:10:30,930 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:10:30,931 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:10:30,973 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:10:33,216 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:10:34,689 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_created():271] file/dir created: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:10:35,755 DEBUG   SystemMonitor:1341167 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2023-11-18 03:10:35,759 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:10:36,690 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:10:39,149 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:10:40,692 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:10:42,693 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:10:44,974 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:10:45,930 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:10:45,931 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:10:45,932 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:10:50,235 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:10:55,314 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:10:55,698 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:10:56,698 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:10:58,699 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:00,353 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:11:00,700 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:01,099 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:11:01,245 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:11:01,246 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:11:02,700 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:04,701 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:05,398 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:11:05,761 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:11:06,702 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:08,702 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:10,420 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:11:10,703 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:12,705 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:14,705 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:15,445 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:11:16,283 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:11:16,333 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:11:16,334 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:11:16,706 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:18,706 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:20,537 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:11:20,707 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:22,708 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:24,708 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:25,654 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:11:26,709 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:28,710 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:30,696 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:11:30,710 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:31,201 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:11:31,363 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:11:31,363 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:11:32,711 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:34,711 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:35,703 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:11:35,764 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:11:36,712 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:38,713 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:40,714 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:40,783 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:11:42,715 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:44,716 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:45,822 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:11:46,214 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:11:46,409 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:11:46,410 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:11:46,717 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:48,717 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:50,718 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:50,995 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:11:52,718 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:54,719 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:56,106 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:11:56,720 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:11:58,720 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:00,721 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:01,168 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:12:01,195 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:12:01,409 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:12:01,410 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:12:02,722 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:04,722 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:05,766 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:12:06,189 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:12:06,723 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:08,723 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:10,724 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:11,209 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:12:12,725 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:14,725 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:16,235 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:12:16,272 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:12:16,422 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:12:16,422 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:12:16,726 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:18,727 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:20,728 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:21,390 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:12:22,728 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:24,729 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:26,425 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:12:26,730 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:28,730 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:30,731 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:31,342 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:12:31,458 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:12:31,470 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:12:31,470 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:12:32,732 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:34,732 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:35,769 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:12:36,473 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:12:36,733 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:38,734 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:40,734 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:41,498 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:12:42,735 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:44,736 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:46,258 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:12:46,459 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:12:46,460 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:12:46,708 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:12:46,736 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:48,737 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:50,738 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:51,778 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:12:52,739 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:54,739 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:56,740 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:12:56,830 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:12:58,740 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:00,741 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:01,247 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:13:01,441 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:13:01,442 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:13:01,916 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:13:02,742 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:04,742 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:05,771 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:13:07,172 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:13:08,743 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:10,744 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:12,272 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:13:12,745 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:14,745 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:16,333 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:13:16,479 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:13:16,479 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:13:16,746 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:17,330 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:13:18,747 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:20,747 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:22,364 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:13:22,748 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:24,749 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:26,749 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:27,521 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:13:28,750 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:30,750 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:31,254 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:13:31,480 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:13:31,480 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:13:32,618 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:13:32,751 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:34,752 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:35,773 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:13:36,752 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:37,695 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:13:38,753 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:40,754 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:42,737 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:13:42,754 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:44,755 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:46,307 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:13:46,363 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:13:46,363 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:13:46,755 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:47,794 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:13:48,756 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:50,757 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:52,758 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:52,868 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:13:54,758 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:56,759 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:13:57,939 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:13:58,762 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:00,763 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:01,478 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:14:01,515 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:14:01,516 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:14:02,763 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:03,044 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:14:04,764 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:05,775 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:14:06,765 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:08,165 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:14:08,765 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:10,766 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:12,767 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:13,240 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:14:14,767 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:16,325 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:14:16,385 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:14:16,386 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:14:16,768 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:18,337 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:14:18,769 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:20,769 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:22,770 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:23,392 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:14:24,771 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:26,771 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:28,411 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:14:28,772 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:30,773 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:31,280 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:14:31,389 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:14:31,390 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:14:32,774 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:33,497 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:14:34,774 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:35,777 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:14:36,778 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:38,517 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:14:38,779 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:40,779 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:42,780 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:43,629 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:14:44,781 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:46,321 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:14:46,409 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:14:46,410 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:14:46,782 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:48,715 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:14:48,782 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:50,783 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:52,784 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:53,755 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:14:54,784 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:56,785 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:58,786 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:14:58,818 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:15:00,786 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:01,293 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:15:01,449 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:15:01,449 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:15:02,787 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:03,990 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:15:04,788 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:05,779 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:15:06,788 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:08,789 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:09,049 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:15:10,790 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:12,790 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:14,066 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:15:14,791 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:16,371 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:15:16,383 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:15:16,383 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:15:16,792 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:18,792 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:19,096 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:15:20,793 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:22,794 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:24,140 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:15:24,794 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:26,795 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:28,796 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:29,186 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:15:30,797 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:31,404 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:15:31,545 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:15:31,546 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:15:32,797 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:34,235 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:15:34,798 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:35,781 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:15:36,798 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:38,799 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:39,316 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:15:40,800 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:42,800 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:44,376 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:15:44,801 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:46,357 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:15:46,357 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:15:46,358 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:15:46,802 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:48,802 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:49,453 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:15:50,803 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:52,804 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:54,458 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:15:54,804 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:56,805 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:58,806 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:15:59,473 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:16:00,806 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:01,339 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:16:01,410 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:16:01,411 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:16:02,807 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:04,564 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:16:04,808 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:05,783 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:16:06,809 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:08,810 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:09,611 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:16:10,810 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:12,811 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:14,614 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:16:14,811 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:16,812 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:20,099 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:16:24,936 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:16:25,005 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:16:25,006 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:16:25,230 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:16:26,815 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:28,816 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:30,329 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:16:30,816 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:32,820 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:34,821 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:35,365 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:16:35,786 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:16:36,822 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:38,823 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:40,154 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:16:40,155 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:16:40,197 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:16:40,436 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:16:40,823 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:42,824 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:44,824 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:45,563 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:16:46,825 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:48,826 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:50,605 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:16:50,826 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:52,827 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:54,828 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:54,919 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:16:54,985 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:16:54,986 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:16:55,639 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:16:56,828 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:16:58,829 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:00,652 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:17:00,829 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:02,830 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:04,831 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:05,748 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:17:05,788 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:17:06,832 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:08,832 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:09,927 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:17:09,927 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:17:10,002 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:17:10,800 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:17:10,833 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:12,834 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:14,834 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:15,829 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:17:16,835 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:18,835 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:20,836 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:20,843 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:17:22,837 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:24,838 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:24,986 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:17:24,986 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:17:25,029 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:17:25,953 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:17:26,838 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:28,839 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:30,840 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:31,063 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:17:32,840 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:34,841 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:35,790 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:17:36,135 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:17:36,842 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:38,842 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:40,045 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:17:40,046 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:17:40,046 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:17:40,843 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:41,267 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:17:42,843 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:44,845 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:46,382 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:17:46,846 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:48,847 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:50,847 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:51,415 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:17:52,848 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:54,848 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:55,144 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:17:55,144 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:17:55,161 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:17:56,506 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:17:56,849 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:17:58,850 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:00,850 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:01,508 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:18:02,851 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:04,852 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:05,792 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:18:06,603 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:18:06,852 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:08,853 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:09,939 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:18:10,065 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:18:10,065 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:18:10,854 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:11,690 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:18:12,854 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:14,855 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:16,776 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:18:16,855 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:18,856 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:20,857 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:21,846 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:18:22,857 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:24,858 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:25,029 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:18:25,050 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:18:25,050 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:18:26,859 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:26,944 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:18:28,859 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:30,860 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:32,022 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:18:32,861 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:34,861 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:35,794 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:18:36,862 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:37,191 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:18:38,863 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:40,140 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:18:40,192 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:18:40,193 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:18:40,863 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:42,202 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:18:42,864 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:44,865 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:46,865 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:47,302 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:18:48,866 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:50,867 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:52,392 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:18:52,867 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:54,868 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:55,060 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:18:55,129 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:18:55,130 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:18:56,871 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:18:57,413 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:18:58,872 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:00,872 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:02,417 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:19:02,873 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:04,874 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:05,797 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:19:06,874 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:07,522 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:19:08,875 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:10,115 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:19:10,116 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:19:10,296 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:19:10,876 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:12,577 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:19:12,877 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:14,878 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:16,879 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:17,595 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:19:19,880 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:21,881 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:22,629 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:19:23,881 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:25,178 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:19:25,179 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:19:25,257 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:19:25,882 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:27,883 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:27,933 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:19:29,884 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:31,885 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:32,951 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:19:33,885 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:35,799 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:19:35,886 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:37,887 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:37,983 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:19:39,887 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:40,157 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:19:40,158 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:19:40,217 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:19:41,888 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:43,085 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:19:43,888 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:45,889 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:47,890 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:48,134 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:19:49,891 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:51,891 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:53,265 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:19:53,892 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:55,066 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:19:55,172 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:19:55,173 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:19:55,892 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:57,893 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:19:58,285 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:19:59,893 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:01,894 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:03,379 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:20:03,895 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:05,801 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:20:05,895 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:07,896 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:08,554 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:20:09,896 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:10,138 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:20:10,209 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:20:10,210 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:20:11,897 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:13,800 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:20:13,898 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:15,898 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:17,899 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:18,870 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:20:19,900 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:21,900 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:24,334 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:20:29,335 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:20:34,336 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:20:35,806 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:20:38,934 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:20:38,935 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:20:38,994 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:20:39,366 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:20:39,906 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:41,906 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:43,907 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:44,379 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:20:45,908 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:47,908 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:49,415 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:20:49,909 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:51,911 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:53,911 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:53,997 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:20:54,101 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:20:54,102 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:20:54,428 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:20:55,912 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:57,913 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:20:59,432 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:20:59,914 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:01,914 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:03,915 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:04,476 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:21:05,805 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:21:05,916 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:07,916 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:08,981 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:21:09,085 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:21:09,085 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:21:09,561 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:21:09,917 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:11,918 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:13,919 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:14,599 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:21:15,919 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:17,920 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:19,654 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:21:19,921 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:21,921 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:23,922 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:24,185 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:21:24,276 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:21:24,276 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:21:24,835 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:21:25,923 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:27,923 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:29,924 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:30,116 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:21:31,925 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:33,925 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:35,183 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:21:35,808 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:21:35,926 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:37,928 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:39,071 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:21:39,112 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:21:39,112 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:21:39,929 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:40,184 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:21:41,929 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:43,930 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:45,259 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:21:45,931 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:47,932 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:49,932 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:50,280 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:21:51,933 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:53,933 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:54,037 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:21:54,085 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:21:54,086 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:21:55,292 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:21:55,934 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:57,935 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:21:59,935 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:00,331 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:22:01,936 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:03,936 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:05,437 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:22:05,810 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:22:05,937 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:07,938 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:09,114 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:22:09,137 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:22:09,137 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:22:09,939 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:10,507 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:22:11,939 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:13,940 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:15,596 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:22:15,941 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:17,942 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:19,943 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:20,643 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:22:21,943 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:23,944 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:24,017 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:22:24,038 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:22:24,038 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:22:25,766 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:22:25,945 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:27,945 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:29,946 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:30,796 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:22:31,946 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:33,947 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:35,812 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:22:35,813 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:22:35,948 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:37,949 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:39,003 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:22:39,040 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:22:39,041 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:22:39,949 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:40,892 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:22:41,950 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:43,951 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:45,904 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:22:45,951 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:47,954 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:49,955 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:50,999 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:22:51,956 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:53,957 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:54,081 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:22:54,139 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:22:54,140 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:22:55,957 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:56,028 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:22:57,959 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:22:59,959 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:01,104 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:23:01,960 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:03,961 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:05,814 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:23:05,962 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:06,192 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:23:07,962 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:09,049 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:23:09,131 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:23:09,131 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:23:09,963 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:11,234 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:23:11,964 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:13,964 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:15,965 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:16,260 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:23:17,966 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:19,967 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:21,304 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:23:21,967 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:23,968 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:24,003 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:23:24,049 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:23:24,050 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:23:25,969 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:26,371 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:23:27,970 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:29,971 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:31,487 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:23:31,971 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:33,972 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:35,816 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:23:35,973 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:36,517 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:23:37,974 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:38,969 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:23:39,339 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:23:39,339 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:23:39,974 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:41,599 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:23:41,975 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:43,976 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:45,977 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:46,659 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:23:47,978 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:49,979 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:51,695 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:23:51,979 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:53,980 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:53,989 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:23:54,089 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:23:54,089 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:23:55,981 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:56,797 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:23:57,982 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:23:59,983 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:01,809 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:24:01,984 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:03,984 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:05,819 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:24:05,985 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:06,869 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:24:07,986 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:09,013 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:24:09,117 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:24:09,117 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:24:09,986 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:11,900 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:24:11,987 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:13,988 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:15,989 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:16,978 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:24:17,989 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:19,990 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:21,991 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:21,997 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:24:23,992 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:24,038 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:24:24,109 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:24:24,109 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:24:25,993 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:27,135 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:24:27,993 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:29,994 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:31,995 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:32,255 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:24:33,996 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:35,821 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:24:35,996 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:37,336 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:24:37,998 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:39,271 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:24:39,272 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:24:39,273 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:24:39,998 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:41,999 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:42,353 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:24:44,000 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:46,000 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:47,415 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:24:48,001 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:50,002 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:52,003 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:52,478 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:24:54,004 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:54,009 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:24:54,151 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:24:54,152 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:24:56,004 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:24:57,649 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:24:58,005 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:00,006 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:02,007 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:02,760 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:25:04,008 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:05,823 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:25:06,009 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:07,820 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:25:08,009 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:09,076 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:25:09,193 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:25:09,194 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:25:10,010 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:12,011 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:12,831 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:25:14,012 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:16,013 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:18,014 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:18,019 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:25:20,014 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:22,015 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:23,103 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:25:24,016 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:24,153 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:25:24,228 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:25:24,229 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:25:26,016 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:28,017 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:28,192 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:25:30,018 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:32,018 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:33,300 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:25:34,019 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:35,824 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:25:36,019 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:38,020 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:38,409 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:25:39,026 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:25:39,156 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:25:39,156 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:25:40,021 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:42,021 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:44,022 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:25:44,401 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:25:49,403 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:25:54,405 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:25:59,406 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:26:04,407 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:26:05,827 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:26:09,017 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:26:09,018 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:26:09,022 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:26:09,418 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:26:10,030 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:12,031 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:14,031 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:14,483 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:26:16,032 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:18,033 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:19,491 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:26:20,033 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:22,034 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:24,035 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:24,042 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:26:24,043 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:26:24,099 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:26:24,684 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:26:26,035 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:28,036 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:29,743 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:26:30,036 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:32,037 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:34,038 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:34,776 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:26:35,829 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:26:36,038 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:38,039 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:39,036 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:26:39,036 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:26:39,077 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:26:39,838 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:26:40,039 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:42,040 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:44,040 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:44,862 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:26:46,041 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:48,042 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:49,998 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:26:50,042 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:52,043 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:54,005 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:26:54,043 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:54,176 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:26:54,176 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:26:55,148 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:26:56,044 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:26:58,044 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:27:00,045 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:27:00,217 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:27:02,046 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:27:04,046 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:27:05,479 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:27:05,831 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:27:06,047 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:27:08,047 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:27:09,025 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:27:09,025 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:27:09,026 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:27:10,048 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:27:10,504 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:27:12,048 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:27:14,050 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:27:15,599 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:27:16,050 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:27:18,051 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:27:20,052 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:27:20,649 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:27:22,052 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:27:24,053 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:27:24,179 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:27:24,327 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:27:24,327 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:27:25,751 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:27:26,053 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:27:28,054 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:27:30,055 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:27:30,755 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:27:32,055 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:27:34,056 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:27:35,833 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:27:35,834 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:27:40,835 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:27:45,837 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:27:50,837 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:27:55,838 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:28:00,839 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:28:05,838 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:28:05,840 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:28:06,666 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:28:06,667 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:28:06,670 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:28:08,066 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:28:10,916 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:28:15,917 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:28:20,918 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:28:21,663 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:28:21,663 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:28:21,705 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:28:26,882 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:28:31,883 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:28:35,837 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:28:36,662 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:28:36,663 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:28:36,663 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:28:36,917 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:28:38,076 INFO    Thread-12 :1341167 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/danielflaherty/llama-recipes/wandb/run-20231118_030935-821hhzk5/files/output.log
+2023-11-18 03:28:41,918 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:28:46,919 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:28:51,662 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:28:51,663 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:28:51,664 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:28:51,955 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:28:56,956 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:29:01,956 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:29:05,840 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:29:06,662 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:29:06,662 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:29:06,705 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:29:07,944 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:29:12,945 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:29:17,946 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:29:21,663 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:29:21,663 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:29:21,705 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:29:23,927 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:29:28,928 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:29:33,929 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:29:35,844 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:29:36,662 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:29:36,663 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:29:36,663 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:29:39,870 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:29:44,871 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:29:49,872 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:29:51,664 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:29:51,664 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:29:51,665 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:29:54,875 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:29:59,876 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:30:04,877 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:30:05,844 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:30:06,664 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:30:06,664 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:30:06,665 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:30:09,911 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:30:14,912 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:30:19,913 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:30:21,664 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:30:21,664 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:30:21,665 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:30:24,929 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:30:29,930 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:30:34,930 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:30:35,847 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:30:36,664 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:30:36,665 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:30:36,665 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:30:39,966 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:30:44,967 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:30:49,967 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:30:51,665 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:30:51,665 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:30:51,665 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:30:55,949 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:31:00,951 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:31:05,849 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:31:06,665 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:31:06,666 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:31:06,666 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:31:06,666 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:31:11,880 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:31:16,880 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:31:21,665 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:31:21,665 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:31:21,705 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:31:21,887 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:31:26,888 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:31:31,889 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:31:35,851 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:31:36,665 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:31:36,666 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:31:36,709 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:31:36,960 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:31:41,961 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:31:46,961 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:31:51,665 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:31:51,666 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:31:51,666 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:31:52,902 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:31:57,903 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:32:02,904 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:32:05,853 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:32:06,665 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:32:06,665 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:32:06,666 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:32:07,966 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:32:12,967 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:32:17,968 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:32:21,665 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:32:21,666 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:32:21,666 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:32:23,866 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:32:28,866 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:32:33,867 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:32:35,858 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:32:36,667 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:32:36,667 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:32:36,709 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:32:38,886 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:32:43,887 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:32:48,887 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:32:51,666 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:32:51,667 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:32:51,667 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:32:54,876 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:32:59,876 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:33:04,878 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:33:05,857 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:33:06,666 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:33:06,667 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:33:06,667 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:33:09,901 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:33:14,902 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:33:19,903 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:33:21,668 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:33:21,669 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:33:21,670 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:33:25,861 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:33:30,862 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:33:35,861 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:33:36,666 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:33:36,666 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:33:36,668 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:33:36,668 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:33:41,962 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:33:46,963 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:33:51,666 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:33:51,667 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:33:51,667 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:33:52,937 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:33:57,938 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:34:02,939 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:34:05,862 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:34:06,667 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:34:06,668 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:34:06,669 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:34:08,901 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:34:13,902 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:34:18,903 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:34:21,667 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:34:21,667 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:34:21,668 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:34:23,917 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:34:28,918 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:34:33,919 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:34:35,863 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:34:36,667 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:34:36,668 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:34:36,668 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:34:38,955 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:34:43,956 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:34:48,957 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:34:51,667 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:34:51,668 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:34:51,668 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:34:53,993 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:34:58,994 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:35:03,995 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:35:05,866 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:35:06,667 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:35:06,668 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:35:06,668 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:35:09,966 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:35:14,967 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:35:19,968 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:35:21,667 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:35:21,669 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:35:21,669 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:35:25,960 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:35:30,961 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:35:35,868 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:35:36,667 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:35:36,668 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:35:36,669 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:35:36,669 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:35:41,909 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:35:46,909 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:35:51,668 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:35:51,669 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:35:51,670 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:35:52,884 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:35:57,885 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:36:02,886 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:36:05,873 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:36:06,668 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:36:06,669 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:36:06,669 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:36:07,984 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:36:12,985 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:36:17,986 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:36:21,669 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:36:21,670 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:36:21,670 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:36:23,869 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:36:28,870 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:36:33,871 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:36:35,873 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:36:36,669 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:36:36,669 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:36:36,670 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:36:38,967 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:36:43,968 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:36:48,969 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:36:51,668 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:36:51,670 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:36:51,671 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:36:54,874 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:36:59,874 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:37:04,875 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:37:05,878 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:37:06,669 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:37:06,670 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:37:06,670 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:37:09,959 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:37:14,960 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:37:19,961 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:37:21,669 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:37:21,670 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:37:21,671 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:37:25,948 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:37:30,948 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:37:35,878 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:37:36,669 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:37:36,670 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:37:36,670 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:37:36,670 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:37:41,899 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:37:46,900 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:37:51,669 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:37:51,670 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:37:51,671 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:37:51,971 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:37:56,972 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:38:01,974 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:38:05,882 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:38:06,671 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:38:06,671 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:38:06,672 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:38:07,970 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:38:12,971 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:38:17,972 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:38:21,670 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:38:21,671 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:38:21,671 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:38:23,936 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:38:28,937 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:38:33,938 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:38:35,884 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:38:36,671 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-18 03:38:36,671 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-18 03:38:36,672 DEBUG   SenderThread:1341167 [sender.py:send_request():407] send_request: stop_status
+2023-11-18 03:38:39,928 DEBUG   HandlerThread:1341167 [handler.py:handle_request():146] handle_request: status_report
+2023-11-18 03:38:41,309 INFO    cpu       :1341167 [interfaces.py:monitor():140] Process cpu has exited.
+2023-11-18 03:38:41,309 DEBUG   SystemMonitor:1341167 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2023-11-18 03:38:41,310 DEBUG   SystemMonitor:1341167 [system_monitor.py:_start():183] Publishing last batch of metrics
+2023-11-18 03:38:41,312 DEBUG   SenderThread:1341167 [sender.py:send():380] send: stats
+2023-11-18 03:38:42,040 WARNING StreamThr :1341167 [internal.py:is_dead():414] Internal process exiting, parent pid 1340946 disappeared
+2023-11-18 03:38:42,041 ERROR   StreamThr :1341167 [internal.py:wandb_internal():152] Internal process shutdown.
+2023-11-18 03:38:42,099 INFO    MainThread:1341167 [internal.py:handle_exit():76] Internal process exited

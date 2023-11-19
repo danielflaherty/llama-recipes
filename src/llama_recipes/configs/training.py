@@ -6,8 +6,8 @@ from dataclasses import dataclass
 
 @dataclass
 class train_config:
-    model_name: str="PATH/to/LLAMA/7B"
-    enable_fsdp: bool=False
+    model_name: str="NousResearch/Llama-2-7b-hf"
+    enable_fsdp: bool=True
     low_cpu_fsdp: bool=False
     run_validation: bool=True
     batch_size_training: int=4
@@ -23,16 +23,19 @@ class train_config:
     use_fp16: bool=False
     mixed_precision: bool=True
     val_batch_size: int=1
-    dataset = "samsum_dataset"
-    peft_method: str = "lora" # None , llama_adapter, prefix
+    dataset = "custom_dataset"
+    peft_method: str = "None" # None , llama_adapter, prefix
     use_peft: bool=False
-    output_dir: str = "PATH/to/save/PEFT/model"
+    output_dir: str = "/mnt/checkpoints_disk/wiki-india-run-2/model"
     freeze_layers: bool = False
     num_freeze_layers: int = 1
     quantization: bool = False
     one_gpu: bool = False
     save_model: bool = True
-    dist_checkpoint_root_folder: str="PATH/to/save/FSDP/model" # will be used if using FSDP
-    dist_checkpoint_folder: str="fine-tuned" # will be used if using FSDP
-    save_optimizer: bool=False # will be used if using FSDP
-    use_fast_kernels: bool = False # Enable using SDPA from PyTroch Accelerated Transformers, make use Flash Attention and Xformer memory-efficient kernels
+    dist_checkpoint_root_folder: str="/mnt/checkpoints_disk/wiki-india-run-2/FSDP/model" # will be used if using FSDP
+    dist_checkpoint_folder: str="ft-model" # will be used if using FSDP
+    save_optimizer: bool=True # will be used if using FSDP
+    use_fast_kernels: bool = True # Enable using SDPA from PyTroch Accelerated Transformers, make use Flash Attention and Xformer memory-efficient kernels
+    wandb_project: str = "llama-7b-full-ft-4"
+    wandb_run_name: str = "wiki-india-run-4"
+    logging_steps: int = 25
