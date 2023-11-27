@@ -36,8 +36,24 @@ def wandb_watch(model, train_config, fsdp_config=None, rank=None):
     run = wandb.init(project=train_config.wandb_project,
                     name=train_config.wandb_run_name,
                     config=asdict(train_config) if fsdp_config is None else {**asdict(train_config), **asdict(fsdp_config)})
-    run.watch(model)
     return run
+
+def get_gradient_norm(model):
+    """
+    Calculate the gradient norm of an FSDP model.
+
+    Args:
+    - model (torch.nn.Module): The FSDP model.
+
+    Returns:
+    - float: The total norm of the gradients.
+    """
+    total_norm = 0.0
+    for param in model.parameters():
+        if param.grad is not None:
+            param_norm = param.grad.data.norm(2)
+            total_norm += param_norm.item() ** 2
+    return total_norm
 
 def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_scheduler, gradient_accumulation_steps, train_config, fsdp_config=None, local_rank=None, rank=None):
     """
@@ -76,9 +92,11 @@ def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_sch
     best_val_loss = float("inf")
     
     # wandb setuo
-    n_steps_per_epoch = math.ceil(len(train_dataloader.dataset) / train_config.batch_size_training)
+    effective_bs = train_config.batch_size_training * train_config.gradient_accumulation_steps * torch.cuda.device_count()
+    n_steps_per_epoch = math.ceil(len(train_dataloader.dataset) / effective_bs)
     if train_config.enable_fsdp and rank == 0:
         wandb_watch(model, train_config, fsdp_config, rank)
+        
     for epoch in range(train_config.num_epochs):
         epoch_start_time = time.perf_counter()
         with MemoryTrace() as memtrace:  # track the memory usage
@@ -100,28 +118,53 @@ def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_sch
                     # if fp16 is enabled, use gradient scaler to handle gradient update
                     scaler.scale(loss).backward()
                     if (step + 1) % gradient_accumulation_steps == 0 or step == len(train_dataloader) - 1:
+                        if train_config.gradient_clipping and train_config.gradient_clipping_threshold > 0.0:
+                             scaler.unscale_(optimizer)
+                             if train_config.enable_fsdp:
+                                 model.clip_grad_norm_(train_config.gradient_clipping_threshold)
+                             else:
+                                 torch.nn.utils.clip_grad_norm_(model.parameters(), train_config.gradient_clipping_threshold)
                         scaler.step(optimizer)
                         scaler.update()
-                        optimizer.zero_grad()
                         pbar.update(1)
                 else:
                     # regular backpropagation when fp16 is not used
                     loss.backward()
                     if (step + 1) % gradient_accumulation_steps == 0 or step == len(train_dataloader) - 1:
+                        if train_config.gradient_clipping and train_config.gradient_clipping_threshold > 0.0:
+                             if train_config.enable_fsdp:
+                                 model.clip_grad_norm_(train_config.gradient_clipping_threshold)
+                             else:
+                                 torch.nn.utils.clip_grad_norm_(model.parameters(), train_config.gradient_clipping_threshold)
                         optimizer.step()
-                        optimizer.zero_grad()
+                        
+                epoch_step = ((step + 1) / n_steps_per_epoch) + epoch
+                global_step = ((step + 1) * effective_bs * (epoch + 1))
+                if train_config.lr_scheduler == "cosine" and (step + 1) % gradient_accumulation_steps == 0:
+                    lr_scheduler.step()
+                    
                 # Log to wandb
                 pbar.update(1)
+                grad_norm = torch.tensor(get_gradient_norm(model)).cuda()
+                if torch.cuda.device_count() > 1 and train_config.enable_fsdp:
+                    dist.all_reduce(grad_norm, op=dist.ReduceOp.SUM)
+                grad_norm = grad_norm.item() ** 2
+                
+                # Now that we've calculated grad norm, we can zero the gradients
+                if (step + 1) % gradient_accumulation_steps == 0 or step == len(train_dataloader) - 1:
+                    optimizer.zero_grad()
+                    
                 loss = loss.detach().float()
                 if torch.cuda.device_count() > 1 and train_config.enable_fsdp:
-                        dist.all_reduce(loss, op=dist.ReduceOp.SUM)
+                    dist.all_reduce(loss, op=dist.ReduceOp.SUM)
                 loss = loss / torch.cuda.device_count()
                 if rank == 0 and step % train_config.logging_steps == 0:
                     metrics = {"train/train_loss:": loss, 
                                "train/train_perplexity": torch.exp(loss),
-                                "train/epoch": (step + 1 + (n_steps_per_epoch * epoch)) / n_steps_per_epoch,
-                                "train/global_step": step + 1 + (n_steps_per_epoch * epoch),
+                                "train/epoch": epoch_step,
+                                "train/global_step": global_step,
                                 "train/lr": optimizer.param_groups[0]['lr'],
+                                "train/grad_norm": grad_norm,
                               }
                     wandb.log(metrics)
                 pbar.set_description(f"Training Epoch: {epoch+1}/{train_config.num_epochs}, step {step}/{len(train_dataloader)} completed (loss: {loss.detach().float()})")
@@ -155,7 +198,8 @@ def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_sch
             print(f"CPU Total Peak Memory consumed during the train (max): {memtrace.cpu_peaked + memtrace.cpu_begin} GB")
 
         # Update the learning rate as needed
-        lr_scheduler.step()
+        if train_config.lr_scheduler == "step":
+            lr_scheduler.step()
 
         if train_config.run_validation:
             eval_ppl, eval_epoch_loss = evaluation(model, train_config, eval_dataloader, local_rank, tokenizer)
@@ -239,7 +283,8 @@ def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_sch
     if train_config.enable_fsdp and not train_config.use_peft:
         save_train_params(train_config, fsdp_config, rank)
         
-    wandb.finish()
+    if train_config.enable_fsdp and rank == 0:
+        wandb.finish()
 
     return results
 

@@ -127,7 +127,7 @@ def tokenize_normal(examples, tokenizer, train=True):
     else:
         input_ids = tokenizer_outs['input_ids']
     input_ids = [[tokenizer.bos_token_id] + t + [tokenizer.eos_token_id] for t in input_ids]
-    attention_mask = [[1] * (len(chunk) - 1) + [0] for chunk in input_ids]
+    attention_mask = [[1] * (len(chunk)) for chunk in input_ids]
     if train:
         labels = [t[:-1] + [-100] for t in input_ids]
     else:
@@ -144,14 +144,14 @@ def get_custom_dataset(dataset_config, tokenizer, split):
     def tokenize_batch_val(examples):
         return tokenize_normal(examples, tokenizer, train=False)
     if split == 'train':
-        dataset = load_dataset('json', data_files='/mnt/checkpoints_disk/upsc-gpt-data/train_data/wiki_india.json', split=None)['train']
+        dataset = load_dataset('json', data_files='/home/upsc-gpt-data/train_data/wiki_india.json', split=None)['train']
         dataset = dataset.map(tokenize_batch_train, batched=True, load_from_cache_file=True)
         # else:
         #     dataset = dataset.map(lambda examples: tokenize_article(examples, tokenizer), batched=True, load_from_cache_file=True)
     else:
-        with open("/mnt/checkpoints_disk/upsc-gpt-data/eval_data/PYQ_2022.json", "r") as f:
+        with open("/home/danielflaherty/llama-recipes/eval_data/PYQ_2022.json", "r") as f:
             eval_qs = json.load(f)
-        with open("/mnt/checkpoints_disk/upsc-gpt-data/eval_data/prompts/5_shot.txt", 'r') as f:
+        with open("/home/danielflaherty/llama-recipes/eval_data/prompts/5_shot.txt", 'r') as f:
             prompt_prefix = f.read()
         eval_qs = [from_dict(q) for q in eval_qs]
         ans_lst = ["(a)", "(b)", "(c)", "(d)"]

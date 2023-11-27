@@ -2,6 +2,7 @@
 # This software may be used and distributed according to the terms of the Llama 2 Community License Agreement.
 
 import os
+import math
 from pkg_resources import packaging
 import wandb
 import fire
@@ -19,6 +20,7 @@ from transformers import (
     LlamaForCausalLM,
     LlamaTokenizer,
     LlamaConfig,
+    get_cosine_schedule_with_warmup
 )
 from transformers.models.llama.modeling_llama import LlamaDecoderLayer
 
@@ -49,9 +51,6 @@ from llama_recipes.utils.train_utils import (
 
 def main(**kwargs):
     # Update the configuration for the training and sharding process
-    os.environ['HF_HOME'] = "/mnt/checkpoints_disk/huggingface_cache"
-    os.environ["TRANSFORMERS_CACHE"] = "/mnt/checkpoints_disk/transformers_cache"
-    os.environ["HF_DATASETS_CACHE"] = "/mnt/checkpoints_disk/hf_datasets_cache"
     train_config, fsdp_config = TRAIN_CONFIG(), FSDP_CONFIG()
     update_config((train_config, fsdp_config), **kwargs)
 
@@ -226,7 +225,14 @@ def main(**kwargs):
             lr=train_config.lr,
             weight_decay=train_config.weight_decay,
         )
-    scheduler = StepLR(optimizer, step_size=1, gamma=train_config.gamma)
+    if train_config.lr_scheduler == "cosine":
+        effective_bs = train_config.batch_size_training * train_config.gradient_accumulation_steps * world_size
+        num_steps_per_epoch = math.ceil(len(train_dataloader.dataset) / effective_bs)
+        num_training_steps = num_steps_per_epoch * train_config.num_epochs
+        num_warmup_steps = math.ceil(0.004 * num_training_steps)
+        scheduler = get_cosine_schedule_with_warmup(optimizer=optimizer, num_warmup_steps=num_warmup_steps, num_training_steps=num_training_steps)
+    else:
+        scheduler = StepLR(optimizer, step_size=1, gamma=train_config.gamma)
 
     # Start the training process
     results = train(
