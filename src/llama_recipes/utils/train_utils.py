@@ -139,7 +139,7 @@ def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_sch
                         optimizer.step()
                         
                 epoch_step = ((step + 1) / n_steps_per_epoch) + epoch
-                global_step = ((step + 1) * effective_bs * (epoch + 1))
+                global_step = step + 1 + (epoch * n_steps_per_epoch)
                 if train_config.lr_scheduler == "cosine" and (step + 1) % gradient_accumulation_steps == 0:
                     lr_scheduler.step()
                     
