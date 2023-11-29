@@ -83,8 +83,16 @@ def load_model_sharded(model, rank, cfg):
     if rank == 0:
         print(f"Sharded state checkpoint loaded from {load_dir}")
 
+def get_data_loader_state(data_loader):
+    # Implement this function based on your DataLoader's specifics.
+    # For a basic DataLoader, you might want to save the index of the next batch or the state of the RNG.
+    # Example for a simple DataLoader with a RandomSampler:
+    if hasattr(data_loader, 'sampler') and hasattr(data_loader.sampler, 'state_dict'):
+        return data_loader.sampler.state_dict()
+    else:
+        return None
 
-def save_model_and_optimizer_sharded(model, rank, cfg,optim=None):
+def save_model_and_optimizer_sharded(model, rank, cfg, optim=None, scheduler=None, data_loader=None):
     """save model and optimizer via sharded_state_dict to save_dir"""
     
     folder_name = (
@@ -109,6 +117,12 @@ def save_model_and_optimizer_sharded(model, rank, cfg,optim=None):
         state_dict = {"model": model.state_dict()}
         if optim is not None:
             state_dict["optim"] = FSDP.optim_state_dict(model, optim)
+        if scheduler is not None:
+            state_dict["scheduler"] = scheduler.state_dict()
+
+        if data_loader is not None:
+            data_loader_state = get_data_loader_state(data_loader)
+            state_dict["data_loader"] = data_loader_state
 
         dist_cp.save_state_dict(
             state_dict=state_dict,

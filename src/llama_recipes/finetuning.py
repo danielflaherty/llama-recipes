@@ -49,56 +49,7 @@ from llama_recipes.utils.train_utils import (
     get_policies
 )
 
-
-def _get_cosine_schedule_with_warmup_lr_lambda(
-    current_step: int, *, num_warmup_steps: int, num_training_steps: int, num_cycles: float
-):
-    min_lr = 1e-5  # Minimum learning rate
-    max_lr = 1e-3  # Maximum learning rate
-    scale = max_lr - min_lr
-
-    # Linear warmup
-    if current_step < num_warmup_steps:
-        progress = float(current_step) / float(max(1, num_warmup_steps))
-        return progress + ((1.0 - progress) * min_lr) / max_lr
-
-    # Cosine decay
-    progress = float(current_step - num_warmup_steps) / float(max(1, num_training_steps - num_warmup_steps))
-    cosine_decay = max(min_lr, min_lr + 0.5 * scale * (1.0 + math.cos(math.pi * float(num_cycles) * 2.0 * progress)))
-    return cosine_decay / max_lr
-
-def get_cosine_schedule_with_warmup(
-    optimizer: Optimizer, num_warmup_steps: int, num_training_steps: int, num_cycles: float = 0.5, last_epoch: int = -1
-):
-    """
-    Create a schedule with a learning rate that decreases following the values of the cosine function between the
-    initial lr set in the optimizer to 0, after a warmup period during which it increases linearly between 0 and the
-    initial lr set in the optimizer.
-
-    Args:
-        optimizer ([`~torch.optim.Optimizer`]):
-            The optimizer for which to schedule the learning rate.
-        num_warmup_steps (`int`):
-            The number of steps for the warmup phase.
-        num_training_steps (`int`):
-            The total number of training steps.
-        num_cycles (`float`, *optional*, defaults to 0.5):
-            The number of waves in the cosine schedule (the defaults is to just decrease from the max value to 0
-            following a half-cosine).
-        last_epoch (`int`, *optional*, defaults to -1):
-            The index of the last epoch when resuming training.
-
-    Return:
-        `torch.optim.lr_scheduler.LambdaLR` with the appropriate schedule.
-    """
-
-    lr_lambda = partial(
-        _get_cosine_schedule_with_warmup_lr_lambda,
-        num_warmup_steps=num_warmup_steps,
-        num_training_steps=num_training_steps,
-        num_cycles=num_cycles,
-    )
-    return LambdaLR(optimizer, lr_lambda, last_epoch)
+from llama_recipes.utils.lr_schedulers import get_cosine_schedule_with_warmup
 
 
 
@@ -267,6 +218,7 @@ def main(**kwargs):
         optimizer = AnyPrecisionAdamW(
             model.parameters(),
             lr=train_config.lr,
+            betas=(0.9, 0.95),
             momentum_dtype=torch.bfloat16,
             variance_dtype=torch.bfloat16,
             use_kahan_summation=False,
@@ -276,14 +228,15 @@ def main(**kwargs):
         optimizer = optim.AdamW(
             model.parameters(),
             lr=train_config.lr,
+            betas=(0.9, 0.95),
             weight_decay=train_config.weight_decay,
         )
     if train_config.lr_scheduler == "cosine":
         effective_bs = train_config.batch_size_training * train_config.gradient_accumulation_steps * world_size
         num_steps_per_epoch = math.ceil(len(train_dataloader.dataset) / effective_bs)
         num_training_steps = num_steps_per_epoch * train_config.num_epochs
-        num_warmup_steps = math.ceil(0.004 * num_training_steps)
-        scheduler = get_cosine_schedule_with_warmup(optimizer=optimizer, num_warmup_steps=num_warmup_steps, num_training_steps=num_training_steps)
+        num_warmup_steps = math.ceil(train_config.warump_factor * num_training_steps)
+        scheduler = get_cosine_schedule_with_warmup(optimizer=optimizer, num_warmup_steps=num_warmup_steps, num_training_steps=num_training_steps, peak_lr=train_config.lr, decay_factor=train_config.decay_factor)
     else:
         scheduler = StepLR(optimizer, step_size=1, gamma=train_config.gamma)
 

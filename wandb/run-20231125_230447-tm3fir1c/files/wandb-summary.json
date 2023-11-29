@@ -1,1 +1,0 @@
-{"train/train_loss:": 1.6560300588607788, "train/train_perplexity": 5.238472938537598, "train/epoch": 0.9984028748253144, "train/global_step": 160032, "train/lr": 1.6367260243037942e-06, "train/grad_norm": 0.20663902870479944, "_timestamp": 1700994158.0477822, "_runtime": 40670.355768203735, "_step": 200, "_wandb": {"runtime": 40777}}
