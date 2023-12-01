@@ -78,7 +78,7 @@ def get_dataloader_kwargs(train_config, dataset, tokenizer, mode):
                     batch_size=batch_size,
                     rank=dist.get_rank(),
                     num_replicas=dist.get_world_size(),
-                    shuffle=mode=="train",
+                    shuffle=True,
                 )
             else:
                 kwargs["batch_sampler"] = LengthBasedBatchSampler(dataset, batch_size, drop_last=True, shuffle=mode=="train")
@@ -88,8 +88,9 @@ def get_dataloader_kwargs(train_config, dataset, tokenizer, mode):
                 kwargs["sampler"] = DistributedSampler(
                 dataset,
                 rank=dist.get_rank(),
+                seed=dist.get_rank(),
                 num_replicas=dist.get_world_size(),
-                shuffle=mode=="train",
+                shuffle=True,
             )
             kwargs["batch_size"] = batch_size
             kwargs["drop_last"] = True

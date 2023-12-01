@@ -5,7 +5,6 @@ from pathlib import Path
 from datetime import datetime
 import torch
 import time
-import os 
 
 from torch.distributed.fsdp import (
     FullyShardedDataParallel as FSDP,
@@ -83,16 +82,8 @@ def load_model_sharded(model, rank, cfg):
     if rank == 0:
         print(f"Sharded state checkpoint loaded from {load_dir}")
 
-def get_data_loader_state(data_loader):
-    # Implement this function based on your DataLoader's specifics.
-    # For a basic DataLoader, you might want to save the index of the next batch or the state of the RNG.
-    # Example for a simple DataLoader with a RandomSampler:
-    if hasattr(data_loader, 'sampler') and hasattr(data_loader.sampler, 'state_dict'):
-        return data_loader.sampler.state_dict()
-    else:
-        return None
 
-def save_model_and_optimizer_sharded(model, rank, cfg, optim=None, scheduler=None, data_loader=None):
+def save_model_and_optimizer_sharded(model, rank, cfg, epoch, optim=None):
     """save model and optimizer via sharded_state_dict to save_dir"""
     
     folder_name = (
@@ -101,6 +92,8 @@ def save_model_and_optimizer_sharded(model, rank, cfg, optim=None, scheduler=Non
         + cfg.dist_checkpoint_folder
         + "-"
         + cfg.model_name
+        + "-"
+        + f"epoch_{epoch}"
     )
 
     save_dir = Path.cwd() / folder_name
@@ -117,12 +110,6 @@ def save_model_and_optimizer_sharded(model, rank, cfg, optim=None, scheduler=Non
         state_dict = {"model": model.state_dict()}
         if optim is not None:
             state_dict["optim"] = FSDP.optim_state_dict(model, optim)
-        if scheduler is not None:
-            state_dict["scheduler"] = scheduler.state_dict()
-
-        if data_loader is not None:
-            data_loader_state = get_data_loader_state(data_loader)
-            state_dict["data_loader"] = data_loader_state
 
         dist_cp.save_state_dict(
             state_dict=state_dict,
@@ -232,8 +219,7 @@ def save_optimizer_checkpoint(model, optimizer, rank, cfg, epoch=1):
             "optimizer" + "-" + cfg.model_name + "-" + str(epoch) + ".pt"
         )
         opt_save_full_path = save_dir / opt_save_name
-        if not os.path.exists(os.path.dirname(opt_save_full_path)):
-            os.mkdir(os.path.dirname(opt_save_full_path)) 
+
         print(f"--> saving optimizer state...")
 
         torch.save(optim_state, opt_save_full_path)
