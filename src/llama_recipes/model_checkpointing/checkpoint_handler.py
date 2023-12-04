@@ -5,7 +5,7 @@ from pathlib import Path
 from datetime import datetime
 import torch
 import time
-
+import os
 from torch.distributed.fsdp import (
     FullyShardedDataParallel as FSDP,
     StateDictType,
@@ -52,6 +52,8 @@ def load_model_sharded(model, rank, cfg):
         + cfg.dist_checkpoint_folder
         + "-"
         + cfg.model_name
+        + "-"
+        + f"epoch_{cfg.checkpoint_epoch}"
     )
 
     load_dir = Path.cwd() / folder_name
@@ -206,11 +208,13 @@ def save_optimizer_checkpoint(model, optimizer, rank, cfg, epoch=1):
 
     if rank == 0:
         folder_name = (
-        cfg.dist_checkpoint_root_folder
-        + "/"
-        + cfg.dist_checkpoint_folder
-        + "-"
-        + cfg.model_name
+            cfg.dist_checkpoint_root_folder
+            + "/"
+            + cfg.dist_checkpoint_folder
+            + "-"
+            + cfg.model_name
+            + "-"
+            + f"epoch_{epoch}"
         )
         save_dir = Path.cwd() / folder_name
         save_dir.mkdir(parents=True, exist_ok=True)
@@ -219,7 +223,8 @@ def save_optimizer_checkpoint(model, optimizer, rank, cfg, epoch=1):
             "optimizer" + "-" + cfg.model_name + "-" + str(epoch) + ".pt"
         )
         opt_save_full_path = save_dir / opt_save_name
-
+        if not os.path.exists(os.path.dirname(opt_save_full_path)):
+            os.mkdir(os.path.dirname(opt_save_full_path)) 
         print(f"--> saving optimizer state...")
 
         torch.save(optim_state, opt_save_full_path)

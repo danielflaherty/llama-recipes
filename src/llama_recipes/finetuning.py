@@ -38,7 +38,7 @@ from llama_recipes.utils.config_utils import (
     get_dataloader_kwargs,
 )
 from llama_recipes.utils.dataset_utils import get_preprocessed_dataset
-
+from llama_recipes.model_checkpointing.checkpoint_handler import *
 from llama_recipes.utils.train_utils import (
     train,
     freeze_transformer_layers,
@@ -50,7 +50,6 @@ from llama_recipes.utils.train_utils import (
 )
 
 from llama_recipes.utils.lr_schedulers import get_cosine_schedule_with_warmup
-
 
 
 def main(**kwargs):
@@ -163,6 +162,11 @@ def main(**kwargs):
         )
         if fsdp_config.fsdp_activation_checkpointing:
             apply_fsdp_checkpointing(model)
+        if train_config.checkpoint_epoch != -1:
+            if train_config.enable_fsdp:
+                load_model_sharded(model, rank, train_config)
+            else:
+                load_model_checkpoint(model, rank, train_config)
     elif not train_config.quantization and not train_config.enable_fsdp:
         model.to("cuda")
 
@@ -231,6 +235,8 @@ def main(**kwargs):
             betas=(0.9, 0.95),
             weight_decay=train_config.weight_decay,
         )
+    if train_config.optimizer_checkpoint_path != "":
+        load_optimizer_checkpoint(model, train_config.optimizer_checkpoint_path, rank)
     if train_config.lr_scheduler == "cosine":
         effective_bs = train_config.batch_size_training * train_config.gradient_accumulation_steps * world_size
         num_steps_per_epoch = math.ceil(len(train_dataloader.dataset) / effective_bs)
