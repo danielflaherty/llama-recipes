@@ -12,7 +12,7 @@ class Question:
     reasoning: str = ""  # Default is an empty string
     level: str = ""  # Default is an empty string
 
-    def format_question(self, prompt_prefix='', prompt_suffix='', use_readmore=False) -> List[Dict[str, str]]:
+    def format_question(self, prompt_prefix='', prompt_suffix='', use_readmore=False, use_reasoning=False) -> List[Dict[str, str]]:
         # Format the question
         formatted_question = self.question
         
@@ -24,6 +24,9 @@ class Question:
         # Add read_more and reasoning if they're not empty
         if self.read_more_content and use_readmore:
             formatted_question += f"\n\nRead More: {self.read_more_content}"
+            
+        if self.reasoning and use_reasoning:
+            formatted_question += f"\n\nReasoning: {self.reasoning}"
         
         # Return the complete formatted question
         return (prompt_prefix + "\n" + formatted_question + "\n" + prompt_suffix).strip()
@@ -56,7 +59,8 @@ def tokenize_batch(examples, tokenizer, train=True):
     input_ids = [[tokenizer.bos_token_id] + t + [tokenizer.eos_token_id] for t in input_ids]
     attention_mask = [[1] * (len(chunk)) for chunk in input_ids]
     if train:
-        labels = [[-100] * (len(t) - 4) + t[-4:] for t in input_ids]
+        q_lens = [1 + len(tokenizer.encode(example.split("\n\nReasoning:")[0], add_special_tokens=False)) for example in examples]
+        labels = [[-100] * (q_lens[i]) + t[q_lens[i]:] for i, t in enumerate(input_ids)]
     else:
         labels = [[-100] * (len(t) - 3) + [t[-3]] + [-100] * 2 for t in input_ids]
     if len(input_ids) == 1:
@@ -75,7 +79,7 @@ def get_byjus_dataset(dataset_config, tokenizer, split):
             train_qs = json.load(f)
         train_qs = [from_dict(q) for q in train_qs]
         ans_lst = ["(a)", "(b)", "(c)", "(d)"]
-        dataset_dict = {'text': [q.format_question(prompt_suffix=f"Answer: {ans_lst[q.answer]}") for q in train_qs]}
+        dataset_dict = {'text': [q.format_question(prompt_suffix=f"Answer: {ans_lst[q.answer]}", use_reasoning=True) for q in train_qs]}
         dataset = Dataset.from_dict(dataset_dict)
         dataset = dataset.map(tokenize_batch_train, batched=True, load_from_cache_file=True, remove_columns=['text'])
     else:

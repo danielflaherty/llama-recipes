@@ -260,8 +260,8 @@ def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_sch
                     print("=====================================================")
             if train_config.enable_fsdp:
                 dist.barrier()
-        checkpoint_end_time = time.perf_counter() - checkpoint_start_time
-        checkpoint_times.append(checkpoint_end_time)
+            checkpoint_end_time = time.perf_counter() - checkpoint_start_time
+            checkpoint_times.append(checkpoint_end_time)
 
         if train_config.enable_fsdp:
             if rank==0:

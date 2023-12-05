@@ -77,6 +77,7 @@ def get_dataloader_kwargs(train_config, dataset, tokenizer, mode):
                     dataset,
                     batch_size=batch_size,
                     rank=dist.get_rank(),
+                    seed=dist.get_rank(),
                     num_replicas=dist.get_world_size(),
                     shuffle=True,
                 )

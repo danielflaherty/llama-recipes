@@ -44,19 +44,20 @@ def get_date_of_run():
 fullstate_save_policy = FullStateDictConfig(offload_to_cpu=True, rank0_only=True)
 
 
-def load_model_sharded(model, rank, cfg):
+def load_model_sharded(model, rank, folder_name, cfg):
     # torch.manual_seed(103)
-    folder_name = (
-        cfg.dist_checkpoint_root_folder
-        + "/"
-        + cfg.dist_checkpoint_folder
-        + "-"
-        + cfg.model_name
-        + "-"
-        + f"epoch_{cfg.checkpoint_epoch}"
-    )
+    # folder_name = (
+    #     cfg.dist_checkpoint_root_folder
+    #     + "/"
+    #     + cfg.dist_checkpoint_folder
+    #     + "-"
+    #     + cfg.model_name
+    #     + "-"
+    #     + f"epoch_{cfg.checkpoint_epoch}"
+    # )
 
-    load_dir = Path.cwd() / folder_name
+    # load_dir = Path.cwd() / folder_name
+    load_dir = Path(folder_name)
 
     if not load_dir.exists():
         if rank == 0:

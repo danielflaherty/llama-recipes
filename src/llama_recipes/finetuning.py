@@ -162,11 +162,13 @@ def main(**kwargs):
         )
         if fsdp_config.fsdp_activation_checkpointing:
             apply_fsdp_checkpointing(model)
-        if train_config.checkpoint_epoch != -1:
+        if train_config.checkpoint_path != "":
             if train_config.enable_fsdp:
-                load_model_sharded(model, rank, train_config)
+                load_model_sharded(model, rank, train_config.checkpoint_path, train_config)
             else:
                 load_model_checkpoint(model, rank, train_config)
+            if rank == 0:
+                print("-----Successfully loaded model checkpoint-----")
     elif not train_config.quantization and not train_config.enable_fsdp:
         model.to("cuda")
 
