@@ -98,9 +98,9 @@ def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_sch
         wandb_watch(train_config, fsdp_config, rank)
         
     # Run evaluation before training    
-    eval_ppl, eval_epoch_loss, acc = evaluation(model, train_config, eval_dataloader, local_rank, tokenizer)
+    eval_ppl, eval_epoch_loss, acc, acc_cot = evaluation(model, train_config, eval_dataloader, local_rank, tokenizer)
     if (train_config.enable_fsdp and rank == 0) or not train_config.enable_fsdp:
-        wandb.log({'eval/epoch': 0.0, 'eval/global_step': 0, 'eval/epoch_loss': eval_epoch_loss, 'eval/perplexity': eval_ppl, 'eval/accuracy': acc})
+        wandb.log({'eval/epoch': 0.0, 'eval/global_step': 0, 'eval/epoch_loss': eval_epoch_loss, 'eval/perplexity': eval_ppl, 'eval/accuracy': acc, 'eval/accuracy_CoT': acc_cot})
         
     # Training loop
     total_steps = 0
@@ -178,13 +178,13 @@ def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_sch
                     
                 # Run validation
                 if train_config.run_validation and total_steps % train_config.val_steps == 0:
-                    eval_ppl, eval_epoch_loss, acc = evaluation(model, train_config, eval_dataloader, local_rank, tokenizer)
+                    eval_ppl, eval_epoch_loss, acc, acc_cot = evaluation(model, train_config, eval_dataloader, local_rank, tokenizer)
                     val_loss.append(eval_epoch_loss)
                     val_prep.append(eval_ppl)
                     if eval_epoch_loss < best_val_loss:
                         best_val_loss = eval_epoch_loss
                     if (train_config.enable_fsdp and rank == 0) or not train_config.enable_fsdp:
-                        wandb.log({'eval/epoch': epoch_step, 'eval/global_step': total_steps, 'eval/epoch_loss': eval_epoch_loss, 'eval/perplexity': eval_ppl, 'eval/accuracy': acc})
+                        wandb.log({'eval/epoch': epoch_step, 'eval/global_step': total_steps, 'eval/epoch_loss': eval_epoch_loss, 'eval/perplexity': eval_ppl, 'eval/accuracy': acc, 'eval/accuracy_cot': acc_cot})
                     
                 pbar.set_description(f"Training Epoch: {epoch+1}/{train_config.num_epochs}, step {step}/{len(train_dataloader)} completed (loss: {loss.detach().float()})")
             pbar.close()
@@ -293,7 +293,7 @@ def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_sch
 
     return results
 
-def evaluation(model,train_config, eval_dataloader, local_rank, tokenizer):
+def evaluation(model, train_config, eval_dataloader, local_rank, tokenizer):
     """
     Evaluates the model on the given dataloader
 
@@ -310,6 +310,7 @@ def evaluation(model,train_config, eval_dataloader, local_rank, tokenizer):
     model.eval()
     eval_preds = []
     num_correct = 0
+    num_correct_cot = 0
     total_pred = 0
     eval_loss = 0.0  # Initialize evaluation loss
     
@@ -328,29 +329,44 @@ def evaluation(model,train_config, eval_dataloader, local_rank, tokenizer):
                 else:
                     batch[key] = batch[key].to('cuda:0')
             # Ensure no gradients are computed for this scope to save memory
-            with torch.no_grad():
-                # Forward pass and compute loss
-                outputs = model(**batch)
-                loss = outputs.loss
-                eval_loss += loss.detach().float()
-            # Decode predictions and add to evaluation predictions list
-            preds = torch.argmax(outputs.logits, -1)
-            output_str = tokenizer.batch_decode(preds.detach().cpu().numpy(), skip_special_tokens=True)
-            eval_preds.extend(output_str)
-            ans_2_idx = {"a": 0, "b": 1, "c": 2, "d": 3}
-            labels = batch['labels']
-            if (type(labels) != list and len(labels.shape) == 2) or (type(labels) == list and type(labels[0]) == list):
-                labels = labels[0, :]
-            correct_ans = tokenizer.decode(labels[-3])
-            correct_ans = ans_2_idx[correct_ans]
-            if len(outputs.logits.shape) == 3 and outputs.logits.shape[0] == 1:
-                ans_logits = [outputs.logits[0, -4, a_tok].item(), outputs.logits[0, -4, b_tok].item(), outputs.logits[0, -4, c_tok].item(), outputs.logits[0, -4, d_tok].item()]
+            if train_config.val_method == "logits":
+                with torch.no_grad():
+                    # Forward pass and compute loss
+                    outputs = model(**batch)
+                    loss = outputs.loss
+                    eval_loss += loss.detach().float()
+                # Decode predictions and add to evaluation predictions list
+                preds = torch.argmax(outputs.logits, -1)
+                output_str = tokenizer.batch_decode(preds.detach().cpu().numpy(), skip_special_tokens=True)
+                eval_preds.extend(output_str)
+                ans_2_idx = {"a": 0, "b": 1, "c": 2, "d": 3}
+                labels = batch['labels']
+                if (type(labels) != list and len(labels.shape) == 2) or (type(labels) == list and type(labels[0]) == list):
+                    labels = labels[0, :]
+                correct_ans = tokenizer.decode(labels[-3])
+                correct_ans = ans_2_idx[correct_ans]
+                if len(outputs.logits.shape) == 3 and outputs.logits.shape[0] == 1:
+                    ans_logits = [outputs.logits[0, -4, a_tok].item(), outputs.logits[0, -4, b_tok].item(), outputs.logits[0, -4, c_tok].item(), outputs.logits[0, -4, d_tok].item()]
+                else:
+                    ans_logits = [outputs.logits[-4, a_tok].item(), outputs.logits[-4, b_tok].item(), outputs.logits[-4, c_tok].item(), outputs.logits[-4, d_tok].item()]
+                if ans_logits.index(max(ans_logits)) == correct_ans:
+                    num_correct += 1
             else:
-                ans_logits = [outputs.logits[-4, a_tok].item(), outputs.logits[-4, b_tok].item(), outputs.logits[-4, c_tok].item(), outputs.logits[-4, d_tok].item()]
+                # CoT Eval
+                with torch.no_grad():
+                    # Forward pass and compute loss
+                    outputs = model.generate(input_ids=batch['input_ids'], attention_mask=batch['attention_mask'], do_sample=False, return_dict_in_generate=False, max_new_tokens=250)
+                    if len(outputs.shape) > 1:
+                        outputs = outputs[0]
+                    output_str = tokenizer.decode(outputs, skip_special_tokens=True)
+                    label = batch['labels']
+                    if (type(labels) != list and len(labels.shape) == 2) or (type(labels) == list and type(labels[0]) == list):
+                        label = label[0]
+                    ans_choices = ["(a)", "(b)", "(c)", "(d)"]
+                    correct_ans = ans_choices[label[-3]]
+                    if correct_ans in output_str[-100:]:
+                        num_correct_cot += 1
             total_pred += 1
-            if ans_logits.index(max(ans_logits)) == correct_ans:
-                num_correct += 1
-
     # If there's more than one CUDA device, reduce evaluation loss across all devices
     if torch.cuda.device_count() > 1 and train_config.enable_fsdp:
         dist.all_reduce(eval_loss, op=dist.ReduceOp.SUM)
@@ -363,11 +379,14 @@ def evaluation(model,train_config, eval_dataloader, local_rank, tokenizer):
     
     # Compute accuracy
     num_correct = torch.tensor(num_correct).cuda()
+    num_correct_cot = torch.tensor(num_correct_cot).cuda()
     total_pred = torch.tensor(total_pred).cuda()
     if torch.cuda.device_count() > 1 and train_config.enable_fsdp:
         dist.all_reduce(num_correct, op=dist.ReduceOp.SUM)
+        dist.all_reduce(num_correct_cot, op=dist.ReduceOp.SUM)
         dist.all_reduce(total_pred, op=dist.ReduceOp.SUM)
     acc = num_correct.item() / total_pred.item()
+    acc_cot = num_correct_cot.item() / total_pred.item()
 
     # Print evaluation metrics
     if train_config.enable_fsdp:
@@ -376,7 +395,7 @@ def evaluation(model,train_config, eval_dataloader, local_rank, tokenizer):
     else:
         print(f" {eval_ppl=} {eval_epoch_loss=}")
 
-    return eval_ppl, eval_epoch_loss, acc
+    return eval_ppl, eval_epoch_loss, acc, acc_cot
 
 def freeze_transformer_layers(model, num_layer):
    for i, layer in enumerate(model.model.layers):

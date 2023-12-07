@@ -6,7 +6,7 @@ import json
 @dataclass
 class Question:
     question: str
-    choices: List[str]
+    options: List[str]
     answer: int
     read_more_content: str = ""  # Default is an empty string
     reasoning: str = ""  # Default is an empty string
@@ -18,15 +18,15 @@ class Question:
         
         # Format the choices with (a), (b), (c), etc
         choice_prefixes = ['(a)', '(b)', '(c)', '(d)', '(e)', '(f)', '(g)', '(h)', '(i)', '(j)']
-        for idx, choice in enumerate(self.choices):
+        for idx, choice in enumerate(self.options):
             formatted_question += f"\n{choice_prefixes[idx]} {choice}"
 
         # Add read_more and reasoning if they're not empty
         if self.read_more_content and use_readmore:
             formatted_question += f"\n\nRead More: {self.read_more_content}"
             
-        if self.reasoning and use_reasoning:
-            formatted_question += f"\n\nReasoning: {self.reasoning}"
+        if self.reasoning != "" and self.reasoning is not None and use_reasoning:
+            formatted_question += f"\nExplain your reasoning, then output your answer at the end:\n\nReasoning: {self.reasoning}"
         
         # Return the complete formatted question
         return (prompt_prefix + "\n" + formatted_question + "\n" + prompt_suffix).strip()
@@ -59,8 +59,16 @@ def tokenize_batch(examples, tokenizer, train=True):
     input_ids = [[tokenizer.bos_token_id] + t + [tokenizer.eos_token_id] for t in input_ids]
     attention_mask = [[1] * (len(chunk)) for chunk in input_ids]
     if train:
-        q_lens = [1 + len(tokenizer.encode(example.split("\n\nReasoning:")[0], add_special_tokens=False)) for example in examples]
-        labels = [[-100] * (q_lens[i]) + t[q_lens[i]:] for i, t in enumerate(input_ids)]
+        labels = []
+        for i, example in enumerate(examples):
+            # if "\n\nReasoning:" not in example:
+            labels.append([-100] * (len(input_ids[i]) - 3) + [input_ids[i][-3]] + [-100] * 2)
+            # else:
+            #     q_len = 1 + len(tokenizer.encode(example.split("\n\nReasoning:")[0], add_special_tokens=False))
+            #     labels.append([-100] * (q_len) + input_ids[i][q_len:])
+        # q_lens = [1 + len(tokenizer.encode(example.split("\n\nReasoning:")[0], add_special_tokens=False)) for example in examples]
+        # labels = [[-100] * (q_lens[i]) + t[q_lens[i]:] for i, t in enumerate(input_ids)]
+        # labels = [[-100] * (len(t) - 4) + t[-4:] for t in input_ids]
     else:
         labels = [[-100] * (len(t) - 3) + [t[-3]] + [-100] * 2 for t in input_ids]
     if len(input_ids) == 1:

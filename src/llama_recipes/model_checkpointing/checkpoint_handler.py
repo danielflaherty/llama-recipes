@@ -148,17 +148,20 @@ def save_model_checkpoint(
         print(f"--> saving model ...")
         # create save path
         folder_name = (
-        cfg.dist_checkpoint_root_folder
-        + "/"
-        + cfg.dist_checkpoint_folder
-        + "-"
-        + cfg.model_name
+            cfg.dist_checkpoint_root_folder
+            + "/"
+            + cfg.dist_checkpoint_folder
+            + "-"
+            + cfg.model_name
+            + "-"
+            + f"epoch_{epoch}"
         )
         save_dir = Path.cwd() / folder_name
         save_dir.mkdir(parents=True, exist_ok=True)
         save_name = cfg.model_name + "-" + str(epoch) + ".pt"
         save_full_path = str(save_dir) + "/" + save_name
-
+        if not os.path.exists(os.path.dirname(save_full_path)):
+            os.mkdir(os.path.dirname(save_full_path))
         # save model
         torch.save(cpu_state, save_full_path)
 

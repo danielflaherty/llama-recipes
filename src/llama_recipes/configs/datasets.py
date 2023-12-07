@@ -48,7 +48,7 @@ class byjus_dataset:
     file: str = "/home/danielflaherty/llama-recipes/src/llama_recipes/datasets/byjus_dataset.py"
     train_split: str = "train"
     test_split: str = "validation"
-    train_data_path: str = '/home/upsc-gpt-data/train_data/byjus_all_unprocessed.json'
+    train_data_path: str = '/home/upsc-gpt-data/train_data/all_qs_filtered.json'
     train_data_packing: bool = False
     eval_data_path: str = "/home/danielflaherty/llama-recipes/eval_data/PYQ_2022.json"
     eval_data_prefix_path: str = "/home/danielflaherty/llama-recipes/eval_data/prompts/5_shot.txt"
