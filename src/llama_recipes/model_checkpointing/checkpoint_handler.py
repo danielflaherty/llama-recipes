@@ -95,8 +95,6 @@ def save_model_and_optimizer_sharded(model, rank, cfg, epoch, optim=None):
         + cfg.dist_checkpoint_folder
         + "-"
         + cfg.model_name
-        + "-"
-        + f"epoch_{epoch}"
     )
 
     save_dir = Path.cwd() / folder_name

@@ -17,7 +17,7 @@ from torch.distributed.fsdp import (
     FullyShardedDataParallel as FSDP,
 )
 from torch.distributed.fsdp.fully_sharded_data_parallel import CPUOffload
-from torch.optim.lr_scheduler import StepLR, LambdaLR
+from torch.optim.lr_scheduler import StepLR
 from transformers import (
     LlamaForCausalLM,
     LlamaTokenizer,
@@ -167,8 +167,6 @@ def main(**kwargs):
                 load_model_sharded(model, rank, train_config.checkpoint_path, train_config)
             else:
                 load_model_checkpoint(model, rank, train_config)
-            if rank == 0:
-                print("-----Successfully loaded model checkpoint-----")
     elif not train_config.quantization and not train_config.enable_fsdp:
         model.to("cuda")
 
@@ -184,13 +182,13 @@ def main(**kwargs):
     if not train_config.enable_fsdp or rank == 0:
         print(f"--> Training Set Length = {len(dataset_train)}")
 
-    dataset_val = get_preprocessed_dataset(
+    datasets_val = get_preprocessed_dataset(
         tokenizer,
         dataset_config,
         split="test",
     )
     if not train_config.enable_fsdp or rank == 0:
-            print(f"--> Validation Set Length = {len(dataset_val)}")
+            print(f"--> Validation Set Length = {len(list(datasets_val.values())[0])}")
 
     if train_config.batching_strategy == "packing":
         dataset_train = ConcatDataset(dataset_train, chunk_size=train_config.context_length)
@@ -209,15 +207,17 @@ def main(**kwargs):
     if train_config.run_validation:
         # if train_config.batching_strategy == "packing":
         #     dataset_val = ConcatDataset(dataset_val, chunk_size=train_config.context_length)
+        eval_dataloaders = {}
+        for dataset_name, dataset_val in datasets_val.items():
+            val_dl_kwargs = get_dataloader_kwargs(train_config, dataset_val, tokenizer, "val")
 
-        val_dl_kwargs = get_dataloader_kwargs(train_config, dataset_val, tokenizer, "val")
-
-        eval_dataloader = torch.utils.data.DataLoader(
-            dataset_val,
-            num_workers=train_config.num_workers_dataloader,
-            pin_memory=True,
-            **val_dl_kwargs,
-        )
+            eval_dataloader = torch.utils.data.DataLoader(
+                dataset_val,
+                num_workers=train_config.num_workers_dataloader,
+                pin_memory=True,
+                **val_dl_kwargs,
+            )
+            eval_dataloaders[dataset_name] = eval_dataloader
 
     # Initialize the optimizer and learning rate scheduler
     if fsdp_config.pure_bf16 and fsdp_config.optimizer == "anyprecision":
@@ -228,7 +228,7 @@ def main(**kwargs):
             momentum_dtype=torch.bfloat16,
             variance_dtype=torch.bfloat16,
             use_kahan_summation=False,
-            weight_decay=train_config.weight_decay,
+            weight_decay=train_config.weight_decays,
         )
     else:
         optimizer = optim.AdamW(
@@ -240,19 +240,21 @@ def main(**kwargs):
     if train_config.optimizer_checkpoint_path != "":
         load_optimizer_checkpoint(model, train_config.optimizer_checkpoint_path, rank)
     if train_config.lr_scheduler == "cosine":
-        effective_bs = train_config.batch_size_training * train_config.gradient_accumulation_steps * world_size
-        num_steps_per_epoch = math.ceil(len(train_dataloader.dataset) / effective_bs)
-        num_training_steps = num_steps_per_epoch * train_config.num_epochs
+        num_steps_per_epoch = len(train_dataloader)
+        if train_config.restarts:
+            num_training_steps = num_steps_per_epoch
+        else:
+            num_training_steps = num_steps_per_epoch * train_config.num_epochs
         num_warmup_steps = math.ceil(train_config.warump_factor * num_training_steps)
         scheduler = get_cosine_schedule_with_warmup(optimizer=optimizer, num_warmup_steps=num_warmup_steps, num_training_steps=num_training_steps, peak_lr=train_config.lr, decay_factor=train_config.decay_factor)
     else:
         scheduler = StepLR(optimizer, step_size=1, gamma=train_config.gamma)
 
     # Start the training process
-    results = train(
+    train(
         model,
         train_dataloader,
-        eval_dataloader,
+        eval_dataloaders,
         tokenizer,
         optimizer,
         scheduler,
@@ -262,8 +264,6 @@ def main(**kwargs):
         local_rank if train_config.enable_fsdp else None,
         rank if train_config.enable_fsdp else None,
     )
-    if not train_config.enable_fsdp or rank==0:
-        [print(f'Key: {k}, Value: {v}') for k, v in results.items()]
 
 if __name__ == "__main__":
     fire.Fire(main)

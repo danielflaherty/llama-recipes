@@ -1,1190 +1,1190 @@
 [
     {
         "question": "Consider the following statements:\n\n1. Jhelum River passes through Wular Lake.\n2. Krishna River directly feeds Kolleru Lake.\n3. Meandering of Gandak River formed Kanwar Lake.\n\nHow many of the statements given above are correct?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 0,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 0
+        ]
     },
     {
         "question": "Consider the following pairs:\nPort - Well known as\n\n1. Kamaraj Port - First major port in India registered as a company\n2. Mundra Port - Largest privately owned port in India\n3. Visakhapatnam - Largest container port in India\n\nHow many of the above pairs are correctly matched?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 1,
+        "options": [
             "Only one pair",
             "Only two pairs",
             "All three pairs",
             "None of the pairs"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 1
+        ]
     },
     {
         "question": "Consider the following trees:\n\n1. Jackfruit (Artocarpus heterophyllus)\n2. Mahua (Madhuca indica)\n3. Teak (Tectona grandis)\n\nHow many of the above are deciduous trees?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 2,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 2
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. India has more arable area than China.\n2. The proportion of irrigated area is more in India as compared to China.\n3. The average productivity per hectare in Indian agriculture is higher than that in China.\n\nHow many of the above statements are correct?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 3,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 3
+        ]
     },
     {
         "question": "Which one of the following is the best example of repeated falls in sea level, giving rise to present-day extensive marshland?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 4,
+        "options": [
             "Bhitarkanika Mangroves",
             "Marakkanam Salt Pans",
             "Naupada Swamp",
             "Rann of Kutch"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 4
+        ]
     },
     {
         "question": "Ilmenite and rutile, abundantly available in certain coastal tracts of India, are rich sources of which one of the following?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 5,
+        "options": [
             "Aluminium",
             "Copper",
             "Iron",
             "Titanium"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 5
+        ]
     },
     {
         "question": "About three-fourths of world's cobalt, a metal required for the manufacture of batteries for electric motor vehicles, is produced by.",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 6,
+        "options": [
             "Argentina",
             "Botswana",
             "the Democratic Republic of the Congo",
             "Kazakhstan"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 6
+        ]
     },
     {
         "question": "Which one of the following is a part of the Congo Basin?",
-        "choices": [
+        "answer": 0,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 7,
+        "options": [
             "Cameroon",
             "Nigeria",
             "South Sudan",
             "Uganda"
-        ],
-        "answer": 0,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 7
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. Amarkantak Hills are at the confluence of Vindhya and Sahyadri Ranges.\n2. Biligirirangan Hills constitute the easternmost part of Satpura Range.\n3. Seshachalam Hills constitute the southernmost part of Western Ghats.\n\nHow many of the statements given above are correct?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 8,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 8
+        ]
     },
     {
         "question": "With reference to India's projects on connectivity, consider the following statements:\n\n1. East-West Corridor under Golden Quadrilateral Project connects Dibrugarh and Surat.\n2. Trilateral Highway connects Moreh in Manipur and Chiang Mai in Thailand via Myanmar.\n3. Bangladesh-China-India-Myanmar Economic Corridor connects Varanasi in Uttar Pradesh with Kunming in China.\n\nHow many of the above statements are correct?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 9,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 9
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. India, despite having uranium deposits, depends on coal for most of its electricity production.\n2. Uranium, enriched to the extent of at least 60%, is required for the production of electricity.\n\nWhich one of the following is correct in respect of the above statements?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 10,
+        "options": [
             "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
             "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
             "Statement-I is correct but Statement-II is incorrect",
             "Statement-I is incorrect but Statement-II is correct"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 10
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. Statement-I: Marsupials are not naturally found in India.\n2. Statement-II: Marsupials can thrive only in montane grasslands with no predators.\n\nWhich one of the following is correct in respect of the above statements?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 11,
+        "options": [
             "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
             "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
             "Statement-I is correct but Statement-II is incorrect",
             "Statement-I is incorrect but Statement-II is correct"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 11
+        ]
     },
     {
         "question": "'Invasive Species Specialist Group' (that develops Global Invasive Species Database) belongs to which one of the following organizations?",
-        "choices": [
+        "answer": 0,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 12,
+        "options": [
             "The International Union for Conservation of Nature",
             "The United Nations Environment Programme",
             "The United Nations World Commission for Environment and Development",
             "The World Wide Fund for Nature"
-        ],
-        "answer": 0,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 12
+        ]
     },
     {
         "question": "Consider the following fauna:\n\n1. Lion-tailed Macaque\n2. Malabar Civet\n3. Sambar Deer\n\nHow many of the above are generally nocturnal or most active after sunset?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 13,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 13
+        ]
     },
     {
         "question": "Which of the following organisms perform waggle dance for others of their kin to indicate the direction and the distance to a source of their food?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 14,
+        "options": [
             "Butterflies",
             "Dragonflies",
             "Honeybees",
             "Wasps"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 14
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. Some mushrooms have medicinal properties.\n2. Some mushrooms have psychoactive properties.\n3. Some mushrooms have insecticidal properties.\n4. Some mushrooms have bioluminescent properties.\n\nHow many of the above statements are correct?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 15,
+        "options": [
             "Only one",
             "Only two",
             "Only three",
             "All four"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 15
+        ]
     },
     {
         "question": "Consider the following statements regarding the Indian squirrels:\n\n1. They build nests by making burrows in the ground.\n2. They store their food materials like nuts and seeds in the ground.\n3. They are omnivorous.\n\nHow many of the above statements are correct?",
-        "choices": [
+        "answer": 0,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 16,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 0,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 16
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. Some microorganisms can grow in environments with temperature above the boiling point of water.\n2. Some microorganisms can grow in environments with temperature below the freezing point of water.\n3. Some microorganisms can grow in highly acidic environment with a pH below 3.\n\nHow many of the above statements are correct?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 17,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 17
+        ]
     },
     {
         "question": "Which one of the following makes a tool with a stick to scrape insects from a hole in a tree or a log of wood?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 18,
+        "options": [
             "Fishing cat",
             "Orangutan",
             "Otter",
             "Sloth bear"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 18
+        ]
     },
     {
         "question": "Consider the following:\n\n1. Aerosols\n2. Foam agents\n3. Fire retardants\n4. Lubricants\n\nIn the making of how many of the above are hydrofluorocarbons used?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 19,
+        "options": [
             "Only one",
             "Only two",
             "Only three",
             "All four"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 19
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. Interest income from the deposits in Infrastructure Investment Trusts (InvlTs) distributed to their investors is exempted from tax, but the dividend is taxable.\n2. InvlTs are recognized as borrowers under the 'Securitization and Reconstruction of Financial Assets and Enforcement of Security Interest Act, 2002'.\n\nWhich one of the following is correct in respect of the above statements?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 20,
+        "options": [
             "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
             "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
             "Statement-I is correct but Statement-II is incorrect",
             "Statement-I is incorrect but Statement-II is correct"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 20
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. Statement-I: In the post-pandemic recent past, many Central Banks worldwide had carried out interest rate hikes.\n2. Statement-II: Central Banks generally assume that they have the ability to counteract the rising consumer prices via monetary policy means.\n\nWhich one of the following is correct in respect of the above statements?",
-        "choices": [
+        "answer": 0,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 21,
+        "options": [
             "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
             "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
             "Statement-I is correct but Statement-II is incorrect",
             "Statement-I is incorrect but Statement-II is correct"
-        ],
-        "answer": 0,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 21
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. Statement-I : Carbon markets are likely to be one of the most widespread tools in the fight against climate change.\n2. Statement-II : Carbon markets transfer resources from the private sector to the State.\n\nWhich one of the following is correct in respect of the above statements?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 22,
+        "options": [
             "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
             "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
             "Statement-I is correct but Statement-II is incorrect",
             "Statement-I is incorrect but Statement-II is correct"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 22
+        ]
     },
     {
         "question": "Which one of the following activities of the Reserve Bank of India is considered to be part of 'sterilization'?",
-        "choices": [
+        "answer": 0,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 23,
+        "options": [
             "Conducting 'Open Market Operations'",
             "Oversight of settlement and payment systems",
             "Debt and cash management for the Central and State Governments",
             "Regulating the functions of Non-banking Financial Institutions"
-        ],
-        "answer": 0,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 23
+        ]
     },
     {
         "question": "Consider the following markets:\n\n1. Government Bond Market\n2. Call Money Market\n3. Treasury Bill Market\n4. Stock Market\n\nHow many of the above are included in capital markets?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 24,
+        "options": [
             "Only one",
             "Only two",
             "Only three",
             "All four"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 24
+        ]
     },
     {
         "question": "Which one of the following best describes the concept of 'Small Farmer Large Field'?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 25,
+        "options": [
             "Resettlement of a large number of people, uprooted from their countries due to war, by giving them a large cultivable land which they cultivate collectively and share the produce",
             "Many marginal farmers in an area organize themselves into groups and synchronize and harmonize selected agricultural operations",
             "Many marginal farmers in an area together make a contract with a corporate body and surrender their land to the corporate body for a fixed term for which the corporate body makes a payment of agreed amount to the farmers",
             "A company extends loans, technical knowledge and material inputs to a number of small farmers in an area so that they produce the agricultural commodity required by the company for its manufacturing process and commercial production"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 25
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. The Government of India provides Minimum Support Price for niger (Guizotia abyssinica) seeds.\n2. Niger is cultivated as a Kharif crop.\n3. Some tribal people in India use niger seed oil for cooking.\n\nHow many of the above statements are correct?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 26,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 26
+        ]
     },
     {
         "question": "Consider the investments in the following assets:\n\n1. Brand recognition\n2. Inventory\n3. Intellectual property\n4. Mailing list of clients\n\nHow many of the above are considered intangible investments?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 27,
+        "options": [
             "Only one",
             "Only two",
             "Only three",
             "All four"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 27
+        ]
     },
     {
         "question": "Consider the following:\n\n1. Demographic performance\n2. Forest and ecology\n3. Governance reforms\n4. Stable government\n5. Tax and fiscal efforts\n\nFor the horizontal tax devolution, the Fifteenth Finance Commission used how many of the above as criteria other than population area and income distance?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 28,
+        "options": [
             "Only two",
             "Only three",
             "Only four",
             "All five"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 28
+        ]
     },
     {
         "question": "Consider the following infrastructure sectors:\n\n1. Affordable housing\n2. Mass rapid transport\n3. Health care\n4. Renewable energy\n\nOn how many of the above does UNOPS Sustainable Investments in Infrastructure and Innovation (S3i) initiative focus for its investments?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 29,
+        "options": [
             "Only one",
             "Only two",
             "Only three",
             "All four"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 29
+        ]
     },
     {
         "question": "In essence, what does 'Due Process of Law' mean?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 30,
+        "options": [
             "The principle of natural justice",
             "The procedure established by law",
             "Fair application of law",
             "Equality before law"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 30
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. Statement-I: In India, prisons are managed by State Governments with their own rules and regulations for the day-to-day administration of prisons.\n2. Statement-II: In India, prisons are governed by the Prisons Act, 1894 which expressly kept the subject of prisons in the control of Provincial Governments.\n\nWhich one of the following is correct in respect of the above statements?",
-        "choices": [
+        "answer": 0,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 31,
+        "options": [
             "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
             "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
             "Statement-I is correct but Statement-II is incorrect",
             "Statement-I is incorrect but Statement-II is correct"
-        ],
-        "answer": 0,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 31
+        ]
     },
     {
         "question": "Which one of the following statements best reflects the Chief purpose of the 'Constitution' of a country?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 32,
+        "options": [
             "It determines the objective for the making of necessary laws.",
             "It enables the creation of political offices and a government.",
             "It defines and limits the powers of government.",
             "It secures social justice, social equality and social security."
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 32
+        ]
     },
     {
         "question": "In India, which one of the following Constitutional Amendments was widely believed to be enacted to overcome the judicial interpretations of the Fundamental Rights?",
-        "choices": [
+        "answer": 0,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 33,
+        "options": [
             "1st Amendment",
             "42nd Amendment",
             "44th Amendment",
             "86th Amendment"
-        ],
-        "answer": 0,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 33
+        ]
     },
     {
         "question": "Consider the following organizations/ bodies in India:\n\n1. The National Commission for Backward Classes\n2. The National Human Rights Commission\n3. The National Law Commission\n4. The National Consumer Disputes Redressal Commission\n\nHow many of the above are constitutional bodies?",
-        "choices": [
+        "answer": 0,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 34,
+        "options": [
             "Only one",
             "Only two",
             "Only three",
             "All four"
-        ],
-        "answer": 0,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 34
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. If the election of the President of India is declared void by the Supreme Court of India, all acts done by him/her in the performance of duties of his/her office of President before the date of decision become invalid.\n2. Election for the post of the President of India can be postponed on the ground that some Legislative Assemblies have been dissolved and elections are yet to take place.\n3. When a Bill is presented to the President of India, the Constitution prescribes time limits within which he/she has to declare his/her assent.\n\nHow many of the above statements are correct?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 35,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 35
+        ]
     },
     {
         "question": "With reference to Finance Bill and Money Bill in the Indian Parliament, consider the following statements:\n\n1. When the Lok Sabha transmits Finance Bill to the Rajya Sabha, it can amend or reject the Bill.\n2. When the Lok Sabha transmits Money Bill to the Rajya Sabha, it cannot amend or reject the Bill, it can only make recommendations.\n3. In the case of disagreement between the Lok Sabha and the Rajya Sabha, there is no joint sitting for Money Bill, but a joint sitting becomes necessary for Finance Bill.\n\nHow many of the above statements are correct?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 36,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 36
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. Once the Central Government notifies an area as a 'Community Reserve' the Chief Wildlife Warden of the State becomes the governing authority of such forest.\n2. Hunting is not allowed in such area.\n3. People of such area are allowed to collect non-timber forest produce.\n4. People of such area are allowed traditional agricultural practices.\n\nHow many of the above statements are correct?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 37,
+        "options": [
             "Only one",
             "Only two",
             "Only three",
             "All four"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 37
+        ]
     },
     {
         "question": "With reference to 'Scheduled Areas' in India, consider the following statements:\n\n1. Within a State, the notification of an area as Scheduled Area takes place through an Order of the President.\n2. The largest administrative unit forming the Scheduled Area is the District and the lowest is the cluster of villages in the Block.\n3. The Chief Ministers of the concerned States are required to submit annual reports to the Union Home Ministry on the administration of Scheduled Areas in the States.\n\nHow many of the above statements are correct?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 38,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 38
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. The Supreme Court of India has held in some judgements that the reservation policies made under Article 16(4) of the Constitution of India would be limited by Article 335 for maintenance of efficiency of administration.\n2. Article 335 of the Constitution of India defines the term 'efficiency of administration'.\n\nWhich one of the following is correct in respect of the above statements?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 39,
+        "options": [
             "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
             "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
             "Statement-I is correct but Statement-II is incorrect",
             "Statement-I is incorrect but Statement-II is correct"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 39
+        ]
     },
     {
         "question": "In which one of the following regions was Dhanyakataka, which flourished as a prominent Buddhist centre under the Mahasanghikas, located?",
-        "choices": [
+        "answer": 0,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 40,
+        "options": [
             "Andhra",
             "Gandhara",
             "Kalinga",
             "Magadha"
-        ],
-        "answer": 0,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 40
+        ]
     },
     {
         "question": "With reference to ancient India, consider the following statements:\n\n1. The concept of Stupa is Buddhist in origin.\n2. Stupa was generally a repository of relics.\n3. Stupa was a votive and commemorative structure in Buddhist tradition.\n\nHow many of the statements given above are correct?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 41,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 41
+        ]
     },
     {
         "question": "With reference to ancient South India, Korkai, Poompuhar and Muchiri were well known as.",
-        "choices": [
+        "answer": 0,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 42,
+        "options": [
             "capital cities",
             "ports",
             "centres of iron-and-steel making",
             "shrines of Jain Tirthankaras"
-        ],
-        "answer": 0,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 42
+        ]
     },
     {
         "question": "Which one of the following explains the practice of 'Vattakirutal' as mentioned in Sangam poems?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 43,
+        "options": [
             "Kings employing women bodyguards",
             "Learned persons assembling in royal courts to discuss religious and philosophical matters",
             "Young girls keeping watch over agricultural fields and driving away birds and animals",
             "A king defeated in a battle committing ritual suicide by starving himself to death"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 43
+        ]
     },
     {
         "question": "Consider the following dynasties:\n1. Hoysala\n2. Gahadavala\n3. Kakatiya\n4. Yadava\n\nHow many of the above dynasties established their kingdoms in early eighth century AD?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 44,
+        "options": [
             "Only one",
             "Only two",
             "Only three",
             "None"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 44
+        ]
     },
     {
         "question": "With reference to ancient Indian History, consider the following pairs:\n\n1. Literary work - Devichandraguptam - Author: Bilhana\n2. Literary work - Hammira-Mahakauya - Author: Nayachandra Suri\n3. Literary work - Milinda-panha - Author: Nagarjuna\n4. Literary work - Nitiua.kyamrita - Author: Soinadeva Suri\n\nHow many of the above pairs are correctly matched?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 45,
+        "options": [
             "Only one",
             "Only two",
             "Only three",
             "All four"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 45
+        ]
     },
     {
         "question": "Who among the following rulers of Vijayanagara Empire constructed a large dam across Tungabhadra River and a canal-cum-aqueduct several kilometres long from the river to the capital city?",
-        "choices": [
+        "answer": 0,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 47,
+        "options": [
             "Devaraya I",
             "Mallikarjuna",
             "Vira Vijaya",
             "Virupaksha"
-        ],
-        "answer": 0,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 47
+        ]
     },
     {
         "question": "Who among the following rulers of medieval Gujarat surrendered Diu to Portuguese?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 48,
+        "options": [
             "Ahmad Shah",
             "Mahmud Begarha",
             "Bahadur Shah",
             "Muhammad Shah"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 48
+        ]
     },
     {
         "question": "By which one of the following Acts was the Governor General of Bengal designated as the Governor General of India?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 49,
+        "options": [
             "The Regulating Act",
             "The Pitt's India Act",
             "The Charter Act of 1793",
             "The Charter Act of 1833"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 49
+        ]
     },
     {
         "question": "Consider the following statements in relation to Janani Suraksha Yojana:\n\n1. It is a safe motherhood intervention of the State Health Departments.\n2. Its objective is to reduce maternal and neonatal mortality among poor pregnant women.\n3. It aims to promote institutional delivery among poor pregnant women.\n4. Its objective includes providing public health facilities to sick infants up to one year of age.\n\nHow many of the statements given above are correct?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 50,
+        "options": [
             "Only one",
             "Only two",
             "Only three",
             "All four"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 50
+        ]
     },
     {
         "question": "Consider the following statements in the context of interventions being undertaken under Anaemia Mukt Bharat Strategy:\n\n1. It provides prophylactic calcium supplementation for pre-school children, adolescents and pregnant women.\n2. It runs a campaign for delayed cord clamping at the time of childbirth.\n3. It provides for periodic deworming to children and adolescents.\n4. It addresses non-nutritional causes of anaemia in endemic pockets with special focus on malaria, hemoglobinopathies and fluorosis.\n\nHow many of the statements given above are correct?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 51,
+        "options": [
             "Only one",
             "Only two",
             "Only three",
             "All four"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 51
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. Carbon fibres are used in the manufacture of components used in automobiles and aircrafts.\n2. Carbon fibres once used cannot be recycled.\n\nWhich of the statements given above is/are correct?",
-        "choices": [
+        "answer": 0,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 52,
+        "options": [
             "1 only",
             "2 only",
             "Both 1 and 2",
             "Neither 1 nor 2"
-        ],
-        "answer": 0,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 52
+        ]
     },
     {
         "question": "Consider the following actions:\n\n1. Detection of car crash/collision which results in the deployment of airbags almost instantaneously\n2. Detection of accidental free fall of a laptop towards the ground which results in the immediate turning off of the hard drive\n3. Detection of the tilt of the smartphone which results in the rotation of display between portrait and landscape mode\n\nIn how many of the above actions is the function of accelerometer required?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 53,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 53
+        ]
     },
     {
         "question": "With reference to the role of biofilters in Recirculating Aquaculture System, consider the following statements:\n\n1. Biofilters provide waste treatment by removing uneaten fish feed.\n2. Biofilters convert ammonia present in fish waste to nitrate.\n3. Biofilters increase phosphorus as nutrient for fish in water.\n\nHow many of the statements given above are correct?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 54,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 54
+        ]
     },
     {
         "question": "Consider the following pairs: Objects in space - Description\n\n1. Cepheids - Giant clouds of dust and gas in space\n2. Nebulae - Stars which brighten and dim periodically\n3. Pulsars - Neutron stars that are formed when massive stars run out of fuel and collapse\n\nHow many of the above pairs are correctly matched?",
-        "choices": [
+        "answer": 0,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 55,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 0,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 55
+        ]
     },
     {
         "question": "Which one of the following countries has its own Satellite Navigation System?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 56,
+        "options": [
             "Australia",
             "Canada",
             "Israel",
             "Japan"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 56
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. Ballistic missiles are jet-propelled at subsonic speeds throughout their flights, while cruise missiles are rocket-powered only in the initial phase of flight.\n2. Agni-V is a medium-range supersonic cruise missile, while BrahMos is a solid-fuelled intercontinental ballistic missile.\n\nWhich of the statements given above is/are correct?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 57,
+        "options": [
             "1 only",
             "2 only",
             "Both 1 and 2",
             "Neither 1 nor 2"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 57
+        ]
     },
     {
         "question": "Consider the following statements regarding mercury pollution:\n\n1. Gold mining activity is a source of mercury pollution in the world.\n2. Coal-based thermal power plants cause mercury pollution.\n3. There is no known safe level of exposure to mercury.\n\nHow many of the above statements are correct?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 58,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 58
+        ]
     },
     {
         "question": "With reference to green hydrogen, consider the following statements:\n\n1. It can be used directly as a fuel for internal combustion.\n2. It can be blended with natural gas and used as fuel for heat or power generation.\n3. It can be used in the hydrogen fuel cell to run vehicles.\n\nHow many of the above statements are correct?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 59,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 59
+        ]
     },
     {
         "question": "Consider the following countries:\n\n1. Bulgaria\n2. Czech Republic\n3. Hungary\n4. Latvia\n5. Lithuania\n6. Romania\n\nHow many of the above-mentioned countries share a land border with Ukraine?",
-        "choices": [
+        "answer": 0,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 60,
+        "options": [
             "Only two",
             "Only three",
             "Only four",
             "Only five"
-        ],
-        "answer": 0,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 60
+        ]
     },
     {
         "question": "With reference to the Earth's atmosphere, which one of the following statements is correct?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 61,
+        "options": [
             "The total amount of insolation received at the equator is roughly about 10 times of that received at the poles.",
             "Infrared rays constitute roughly two-thirds of insolation.",
             "Infrared waves are largely absorbed by water vapour that is concentrated in the lower atmosphere.",
             "Infrared waves are a part of visible spectrum of electromagnetic waves of solar radiation."
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 61
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. Statement-I The soil in tropical rain forests is rich in nutrients.\n2. Statement-II The high temperature and moisture of tropical rain forests cause dead organic matter in the soil to decompose quickly.\n\nWhich one of the following is correct in respect of the above statements?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 62,
+        "options": [
             "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
             "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
             "Statement-I is correct but Statement-II is incorrect",
             "Statement-I is incorrect but Statement-II is correct"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 62
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. Statement-I: The temperature contrast between continents and oceans is greater during summer than in winter.\n2. Statement-II: The specific heat of water is more than that of land surface.\n\nWhich one of the following is correct in respect of the above statements?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 63,
+        "options": [
             "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
             "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
             "Statement-I is correct but Statement-II is incorrect",
             "Statement-I is incorrect but Statement-II is correct"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 63
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. In a seismograph, P waves are recorded earlier than S waves.\n2. In P waves, the individual particles vibrate to and fro in the direction of wave propagation whereas in S waves, the particles vibrate up and down at right angles to the direction of wave propagation.\n\nWhich of the statements given above is/are correct?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 64,
+        "options": [
             "1 only",
             "2 only",
             "Both 1 and 2",
             "Neither 1 nor 2"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 64
+        ]
     },
     {
         "question": "With reference to coal-based thermal power plants in India, consider the following statements:\n\n1. None of them uses seawater.\n2. None of them is set up in water-stressed district.\n3. None of them is privately owned.\n\nHow many of the above statements are correct?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 65,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 65
+        ]
     },
     {
         "question": "'Wolbachia method' is sometimes talked about with reference to which one of the following?",
-        "choices": [
+        "answer": 0,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 66,
+        "options": [
             "Controlling the viral diseases spread by mosquitoes",
             "Converting crop residues into packing material.",
             "Producing biodegradable plastics",
             "Producing biochar from thermo-chemical conversion of biomass"
-        ],
-        "answer": 0,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 66
+        ]
     },
     {
         "question": "Consider the following activities:\n\n1. Spreading finely ground basalt rock on farmlands extensively\n2. Increasing the alkalinity of oceans by adding lime\n3. Capturing carbon dioxide released by various industries and pumping it into abandoned subterranean mines in the form of carbonated waters\n\nHow many of the above activities are often considered and discussed for carbon capture and sequestration?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 67,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 67
+        ]
     },
     {
         "question": "'Aerial metagenomics' best refers to which one of the following situations?",
-        "choices": [
+        "answer": 0,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 68,
+        "options": [
             "Collecting DNA samples from air in a habitat at one go",
             "Understanding the genetic makeup of avian species of a habitat",
             "Using air-borne devices to collect blood samples from moving animals",
             "Sending drones to inaccessible areas to collect plant and animal samples from land surfaces and water bodies"
-        ],
-        "answer": 0,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 68
+        ]
     },
     {
         "question": "'Microsatellite DNA' is used in the case of which one of the following?",
-        "choices": [
+        "answer": 0,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 69,
+        "options": [
             "Studying the evolutionary relationships among various species of fauna",
             "Stimulating 'stem cells' to transform into diverse functional tissues",
             "Promoting clonal propagation of horticultural plants",
             "Assessing the efficacy of drugs by conducting series of drug trials in a population"
-        ],
-        "answer": 0,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 69
+        ]
     },
     {
         "question": "Consider the following statements with reference to India:\n\n1. According to the 'Micro, Small and Medium Enterprises Development (MSMED) Act, 2006', the 'medium enterprises' are those with investments in plant and machinery between 15 crore and 25 crore.\n2. All bank loans to the Micro, Small and Medium Enterprises qualify under the priority sector.\n\nWhich of the statements given above is/are correct?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 70,
+        "options": [
             "1 only",
             "2 only",
             "Both 1 and 2",
             "Neither 1 nor 2"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 70
+        ]
     },
     {
         "question": "With reference to Central Bank digital currencies, consider the following statements:\n\n1. It is possible to make payments in a digital currency without using US dollar or SWIFT system.\n2. A digital currency can be distributed with a condition programmed into it such as a time-frame for spending it.\n\nWhich of the statements given above is/are correct?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 71,
+        "options": [
             "1 only",
             "2 only",
             "Both 1 and 2",
             "Neither 1 nor 2"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 71
+        ]
     },
     {
         "question": "In the context of finance, the term 'beta' refers to.",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 72,
+        "options": [
             "the process of simultaneous buying and selling of an asset from different platforms",
             "an investment strategy of a portfolio manager to balance risk versus reward",
             "a type of systemic risk that arises where perfect hedging is not possible",
             "a numeric value that measures the fluctuations of a stock to changes in the overall stock market"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 72
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. The Self-Help Group (SHG) programme was originally initiated by the State Bank of India by providing microcredit to the financially deprived.\n2. In an SHG, all members of a group take responsibility for a loan that an individual member takes.\n3. The Regional Rural Banks and Scheduled Commercial Banks support SHGs.\n\nHow many of the above statements are correct?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 73,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 73
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. India's public sector health care system largely focuses on curative care with limited preventive, promotive and rehabilitative care.\n2. Under India's decentralized approach to health care delivery, the States are primarily responsible for organizing health services.\n\nWhich one of the following is correct in respect of the above statements?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 74,
+        "options": [
             "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
             "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
             "Statement-I is correct but Statement-II is incorrect",
             "Statement-I is incorrect but Statement-II is correct"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 74
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. According to the United Nations' 'World Water Development Report, 2022', India extracts more than a quarter of the world's groundwater withdrawal each year.\n2. India needs to extract more than a quarter of the world's groundwater each year to satisfy the drinking water and sanitation needs of almost 18% of world's population living in its territory.\n\nWhich one of the following is correct in respect of the above statements?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 75,
+        "options": [
             "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
             "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
             "Statement-I is correct but Statement-II is incorrect",
             "Statement-I is incorrect but Statement-II is correct"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 75
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. According to the Constitution of India, the Central Government has a duty to protect States from internal disturbances.\n2. The Constitution of India exempts the States from providing legal counsel to a person being held for preventive detention.\n3. According to the Prevention of Terrorism Act, 2002, confession of the accused before the police cannot be used as evidence.\n\nHow many of the above statements are correct?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 76,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 76
+        ]
     },
     {
         "question": "Which one of the following countries has been suffering from decades of civil strife and food shortages and was in news in the recent past for its very severe famine?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 77,
+        "options": [
             "Angola",
             "Costa Rica",
             "Ecuador",
             "Somalia"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 77
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. In India, the Biodiversity Management Committees are key to the realization of the objectives of the Nagoya Protocol.\n2. The Biodiversity Management Committees have important functions in determining access and benefit sharing, including the power to levy collection fees on the access of biological resources within its jurisdiction.\n\nWhich of the statements given above is/are correct?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 78,
+        "options": [
             "1 only",
             "2 only",
             "Both 1 and 2",
             "Neither 1 nor 2"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 78
+        ]
     },
     {
         "question": "Consider the following statements in respect of election to the President of India:\n\n1. The members nominated to either House of the Parliament or the Legislative Assemblies of States are also eligible to be included in the Electoral College.\n2. Higher the number of elective Assembly seats, higher is the value of vote of each MLA of that State.\n3. The value of vote of each MLA of Madhya Pradesh is greater than that of Kerala.\n4. The value of vote of each MLA of Puducherry is higher than that of Arunachal Pradesh because the ratio of total population to total number of elective seats in Puducherry is greater as compared to Arunachal Pradesh.\n\nHow many of the above statements are correct?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 79,
+        "options": [
             "Only one",
             "Only two",
             "Only three",
             "All four"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 79
+        ]
     },
     {
         "question": "With reference to the Indian History, Alexander Rea, A. H. Longhurst, Robert Sewell, James Burgess and Walter Elliot were associated with.",
-        "choices": [
+        "answer": 0,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 80,
+        "options": [
             "archaeological excavations",
             "establishment of English Press in Colonial India",
             "establishment of Churches in Princely States",
             "construction of railways in Colonial India"
-        ],
-        "answer": 0,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 80
+        ]
     },
     {
         "question": "Consider the following pairs:\nSite - Well known for\n\n1. Besnagar - Shaivite cave shrine\n2. Bhaja - Buddhist cave shrine\n3. Sittanavasal - Jain cave shrine\n\nHow many of the above pairs are correctly matched?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 81,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 81
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. Statement-I: 7th August is declared as the National Handloom Day.\n2. Statement-II: It was in 1905 that the Swadeshi Movement was launched on the same day.\n\nWhich one of the following is correct in respect of the above statements?",
-        "choices": [
+        "answer": 0,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 82,
+        "options": [
             "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
             "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
             "Statement-I is correct but Statement-II is incorrect",
             "Statement-I is incorrect but Statement-II is correct"
-        ],
-        "answer": 0,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 82
+        ]
     },
     {
         "question": "Consider the following statements in respect of the National Flag of India according to the Flag Code of India, 2002:\n\n1. One of the standard sizes of the National Flag of India is 600 mm x 400 mm.\n2. The ratio of the length to the height (width) of the Flag shall be 3:2.\n\nWhich one of the following is correct in respect of the above statements?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 83,
+        "options": [
             "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
             "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
             "Statement-I is correct but Statement-II is incorrect",
             "Statement-I is incorrect but Statement-II is correct"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 83
+        ]
     },
     {
         "question": "Consider the following statements in respect of the Constitution Day:\n\n1. The Constitution Day is celebrated on 26th November every year to promote constitutional values among citizens.\n2. On 26th November, 1949, the Constituent Assembly of India set up a Drafting Committee under the Chairmanship of Dr. B. R. Ambedkar to prepare a Draft Constitution of India.\n\nWhich one of the following is correct in respect of the above statements?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 84,
+        "options": [
             "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
             "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
             "Statement-I is correct but Statement-II is incorrect",
             "Statement-I is incorrect but Statement-II is correct"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 84
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. Statement-I: Switzerland is one of the leading exporters of gold in terms of value.\n2. Statement-II: Switzerland has the second largest gold reserves in the world.\n\nWhich one of the following is correct in respect of the above statements?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 85,
+        "options": [
             "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
             "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
             "Statement-I is correct but Statement-II is incorrect",
             "Statement-I is incorrect but Statement-II is correct"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 85
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. Statement-I : Recently, the United States of America (USA) and the European Union (EU) have launched the 'Trade and Technology Council'.\n2. Statement-II : The USA and the EU claim that through this they are trying to bring technological progress and physical productivity under their control.\n\nWhich one of the following is correct in respect of the above statements?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 86,
+        "options": [
             "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
             "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
             "Statement-I is correct but Statement-II is incorrect",
             "Statement-I is incorrect but Statement-II is correct"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 86
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. Statement-I: India accounts for 3.2% of global export of goods.\n2. Statement-II: Many local companies and some foreign companies operating in India have taken advantage of India's 'Production-linked Incentive' scheme.\n\nWhich one of the following is correct in respect of the above statements?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 87,
+        "options": [
             "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
             "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
             "Statement-I is correct but Statement-II is incorrect",
             "Statement-I is incorrect but Statement-II is correct"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 87
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. The 'Stability and Growth Pact' of the European Union is a treaty that limits the levels of the budgetary deficit of the countries of the European Union.\n2. The 'Stability and Growth Pact' of the European Union is a treaty that makes the countries of the European Union to share their infrastructure facilities.\n3. The 'Stability and Growth Pact' of the European Union is a treaty that enables the countries of the European Union to share their technologies.\n\nHow many of the above statements are correct?",
-        "choices": [
+        "answer": 0,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 88,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 0,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 88
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. Recently, all the countries of the United Nations have adopted the first-ever compact for international migration, the 'Global Compact for Safe, Orderly and Regular Migration (GCM)'.\n2. The objectives and commitments stated in the GCM are binding on the UN member countries.\n3. The GCM addresses internal migration or internally displaced people also in its objectives and commitments.\n\nHow many of the above statements are correct?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 89,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 89
+        ]
     },
     {
         "question": "With reference to Home Guards, consider the following statements :\n\n1. Home Guards are raised under the Home Guards Act and Rules of the Central Government.\n2. The role of the Home Guards is to serve as an auxiliary force to the police in maintenance of internal security.\n3. To prevent infiltration on the international border/coastal areas, the Border Wing Home Guards Battalions have been raised in some States.\n\nHow many of the above statements are correct?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 90,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 90
+        ]
     },
     {
         "question": "With reference to India, consider the following pairs:\n\n1. Unauthorized wearing of police or military uniforms - The Official Secrets Act, 1923\n2. Knowingly misleading or otherwise interfering with a police officer or military officer when engaged in their duties - The Indian Evidence Act, 1872\n3. Celebratory gunfire which can endanger the personal safety of others - The Arms (Amendment) Act, 2019\n\nHow many of the above pairs are correctly matched?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 91,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 91
+        ]
     },
     {
         "question": "Consider the following pairs:\nRegions often mentioned in news - Reason for being in news\n\n1. North Kivu and Ituri - War between Armenia and Azerbaijan\n2. Nagomo-Karabakh - Insurgency in Mozambique\n3. Kherson and Zaporizhzhia - Dispute between Israel and Lebanon\n\nHow many of the above pairs are correctly matched?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 92,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 92
+        ]
     },
     {
         "question": "Consider the following statements:\n\n1. Israel has established diplomatic relations with some Arab States.\n2. The 'Arab Peace Initiative' mediated by Saudi Arabia was signed by Israel and Arab League.\n\nWhich one of the following is correct in respect of the above statements?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 93,
+        "options": [
             "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I",
             "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I",
             "Statement-I is correct but Statement-II is incorrect",
             "Statement-I is incorrect but Statement-II is correct"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 93
+        ]
     },
     {
         "question": "Consider the following pairs with regard to sports awards:\n\n1. Major Dhyan Chand - Khel Ratna Award\n2. Arjuna Award\n3. Dronacharya Award\n4. Rashtriya Khel Protsahan Puraskar\n\nFor the most spectacular and outstanding performance by a sportsperson over a period of the last four years.\nFor the lifetime achievement by a sportsperson.\nTo honor eminent coaches who have successfully trained sportspersons or teams.\nTo recognize the contribution made by sportspersons even after their retirement.\n\nHow many of the above pairs are correctly matched?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 94,
+        "options": [
             "Only one",
             "Only two",
             "Only three",
             "All four"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 94
+        ]
     },
     {
         "question": "Consider the following statements in respect of the 44th Chess Olympiad, 2022:\n\n1. It was the first time that Chess Olympiad was held in India.\n2. The official mascot was named 'Thambi'.\n3. The trophy for the winning team in the open section is the Vera Menchik Cup.\n4. The trophy for the winning team in the women's section is the Hamilton-Russell Cup.\n\nHow many of the statements given above are correct?",
-        "choices": [
+        "answer": 1,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 95,
+        "options": [
             "Only one",
             "Only two",
             "Only three",
             "All four"
-        ],
-        "answer": 1,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 95
+        ]
     },
     {
         "question": "Consider the following pairs: Area of conflict mentioned in news - Country where it is located\n\n1. Donbas - Syria\n2. Kachin - Ethiopia\n3. Tigray - North Yemen\n\nHow many of the above pairs are correctly matched?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 96,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 96
+        ]
     },
     {
         "question": "In the recent years Chad, Guinea, Mali and Sudan caught the international attention for which one of the following reasons common to all of them?",
-        "choices": [
+        "answer": 3,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 97,
+        "options": [
             "Discovery of rich deposits of rare earth elements",
             "Establishment of Chinese military bases",
             "Southward expansion of Sahara Desert",
             "Successful coups"
-        ],
-        "answer": 3,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 97
+        ]
     },
     {
         "question": "Consider the following heavy industries:\n\n1. Fertilizer plants\n2. Oil refineries\n3. Steel plants\n\nGreen hydrogen is expected to play a significant role in decarbonizing how many of the above industries?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 98,
+        "options": [
             "Only one",
             "Only two",
             "All three",
             "None"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 98
+        ]
     },
     {
         "question": "Consider the following statements about G-20:\n\n1. The G-20 group was originally established as a platform for the Finance Ministers and Central Bank Governors to discuss the international economic and financial issues.\n2. Digital public infrastructure is one of India's G-20 priorities.\n\nWhich of the statements given above is/are correct?",
-        "choices": [
+        "answer": 2,
+        "exam": "UPSC_Prelims_GS_1_2023",
+        "question_id": 99,
+        "options": [
             "1 only",
             "2 only",
             "Both 1 and 2",
             "Neither 1 nor 2"
-        ],
-        "answer": 2,
-        "exam": "UPSC_Prelims_GS_1_2023",
-        "question_id": 99
+        ]
     }
 ]

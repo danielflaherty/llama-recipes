@@ -2,6 +2,7 @@
 # This software may be used and distributed according to the terms of the Llama 2 Community License Agreement.
 
 import os
+import sys
 import time
 import yaml
 from contextlib import nullcontext
@@ -17,6 +18,8 @@ from torch.distributed.fsdp import StateDictType
 from torch.distributed.fsdp.sharded_grad_scaler import ShardedGradScaler
 from tqdm import tqdm
 from transformers import LlamaTokenizer
+import datetime
+import math
 
 
 from llama_recipes.model_checkpointing import save_model_checkpoint, save_model_and_optimizer_sharded, save_optimizer_checkpoint
@@ -55,7 +58,27 @@ def get_gradient_norm(model):
             total_norm += param_norm.item() ** 2
     return total_norm
 
-def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_scheduler, gradient_accumulation_steps, train_config, fsdp_config=None, local_rank=None, rank=None):
+def run_both_evals(eval_dataloaders, model, train_config, tokenizer, local_rank, rank, step, epoch):
+    eval_metrics = {}
+    for dataset_name, eval_dataloader in eval_dataloaders.items():  
+        if "CoT" in dataset_name:
+            acc, cot_preds = evaluation_CoT(model, train_config, eval_dataloader, local_rank, tokenizer)
+        else:
+            eval_ppl, eval_epoch_loss, acc, other_tokens_loss, probs_ratio = evaluation(model, train_config, eval_dataloader, local_rank, tokenizer)
+        eval_metrics.update({f'eval/{dataset_name}_epoch_loss': eval_epoch_loss, f"eval/{dataset_name}_other_tokens_loss": other_tokens_loss,
+                             f"eval/{dataset_name}_model_wrong_probs_ratio": probs_ratio, f'eval/{dataset_name}_perplexity': eval_ppl})
+        eval_metrics.update({f'eval/{dataset_name}_accuracy': acc})
+        if (train_config.enable_fsdp and rank == 0) or not train_config.enable_fsdp:
+            eval_metrics.update({'eval/global_step': step, 'eval/epoch': epoch})
+            if "CoT" in dataset_name:
+                table = wandb.Table(columns=["input", "output"])
+                for input_str, output_str in cot_preds.items():
+                    table.add_data(input_str, output_str)
+                wandb.log({f"Epoch_{epoch}_Preds": table}, commit=False)
+            wandb.log(eval_metrics)
+    return eval_metrics
+
+def train(model, train_dataloader, eval_dataloaders, tokenizer, optimizer, lr_scheduler, gradient_accumulation_steps, train_config, fsdp_config=None, local_rank=None, rank=None):
     """
     Trains the model on the given dataloader
 
@@ -68,7 +91,7 @@ def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_sch
         num_epochs: The number of epochs to train for
         local_rank: The rank of the current node in a distributed setting
         train_config: The training configuration
-        eval_dataloader: The dataloader containing the eval data
+        eval_dataloaders: The dataloaders containing the eval data
         tokenizer: tokenizer used in the eval for decoding the predicitons
 
     Returns: results dictionary containing average training and validation perplexity and loss
@@ -82,26 +105,25 @@ def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_sch
         world_size = int(os.environ["WORLD_SIZE"])
     autocast = torch.cuda.amp.autocast if train_config.use_fp16 else nullcontext
 
-    train_prep = []
-    train_loss = []
-    val_prep = []
-    val_loss =[]
     epoch_times = []
     checkpoint_times = []
-    results = {}
     best_val_loss = float("inf")
+    
+    # For Calculating Accuracy:
+    a_tok = tokenizer.encode("(a)")[-2]
+    b_tok = tokenizer.encode("(b)")[-2]
+    c_tok = tokenizer.encode("(c)")[-2]
+    d_tok = tokenizer.encode("(d)")[-2]
+    ans_toks = [a_tok, b_tok, c_tok, d_tok]
             
     # wandb setuo
-    effective_bs = train_config.batch_size_training * train_config.gradient_accumulation_steps * torch.cuda.device_count()
-    n_steps_per_epoch = math.ceil(len(train_dataloader.dataset) / effective_bs)
+    n_steps_per_epoch = len(train_dataloader) // gradient_accumulation_steps
     if train_config.enable_fsdp and rank == 0:
         wandb_watch(train_config, fsdp_config, rank)
         
-    # Run evaluation before training    
-    eval_ppl, eval_epoch_loss, acc, acc_cot = evaluation(model, train_config, eval_dataloader, local_rank, tokenizer)
-    if (train_config.enable_fsdp and rank == 0) or not train_config.enable_fsdp:
-        wandb.log({'eval/epoch': 0.0, 'eval/global_step': 0, 'eval/epoch_loss': eval_epoch_loss, 'eval/perplexity': eval_ppl, 'eval/accuracy': acc, 'eval/accuracy_CoT': acc_cot})
-        
+    # Run evaluation before training 
+    if train_config.run_validation:
+        run_both_evals(eval_dataloaders, model, train_config, tokenizer, local_rank, rank, 0, 0.0)
     # Training loop
     total_steps = 0
     for epoch in range(train_config.num_epochs):
@@ -118,9 +140,40 @@ def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_sch
                     else:
                         batch[key] = batch[key].to('cuda:0')
                 with autocast():
-                    loss = model(**batch).loss
+                    outputs = model(**batch)
+                    loss = outputs.loss
                 loss = loss / gradient_accumulation_steps
                 total_loss += loss.detach().float()
+                # Calculate train accuracy:
+                ans_2_idx = {"a": 0, "b": 1, "c": 2, "d": 3}
+                labels = []
+                num_correct = 0
+                other_tokens_loss = 0.0
+                batch_size = batch['labels'].shape[0]
+                for i in range(batch_size):
+                    labels_list = batch['labels'][i].tolist()
+                    label_idx = find_matching_index(labels_list, ans_toks)
+                    label = labels_list[label_idx]
+                    labels.append(label)
+                    correct_ans = tokenizer.decode(label)
+                    correct_ans = ans_2_idx[correct_ans]
+                    logprobs = torch.nn.functional.log_softmax(outputs.logits[i, label_idx - 1, :], dim=0)
+                    ans_logits = [logprobs[a_tok].item(), logprobs[b_tok].item(), logprobs[c_tok].item(), logprobs[d_tok].item()]
+                    other_tokens_loss -= sum(ans_logits) + ans_logits[correct_ans]
+                    max_logprob = max(ans_logits)
+                    model_ans = ans_logits.index(max_logprob)
+                    ans_logits.sort(reverse=True)
+                    if model_ans == correct_ans:
+                        num_correct += 1                    
+                if torch.cuda.device_count() > 1 and train_config.enable_fsdp:
+                    num_correct = torch.tensor(num_correct).cuda()
+                    other_tokens_loss = torch.tensor(other_tokens_loss).cuda()
+                    batch_size = torch.tensor(batch_size).cuda()
+                    dist.all_reduce(num_correct, op=dist.ReduceOp.SUM)
+                    dist.all_reduce(batch_size, op=dist.ReduceOp.SUM)
+                    dist.all_reduce(other_tokens_loss, op=dist.ReduceOp.SUM)
+                acc = num_correct.item() / batch_size.item()
+                other_tokens_loss = other_tokens_loss.item() / batch_size.item()
                 if train_config.use_fp16:
                     # if fp16 is enabled, use gradient scaler to handle gradient update
                     scaler.scale(loss).backward()
@@ -156,7 +209,7 @@ def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_sch
                 grad_norm = torch.tensor(get_gradient_norm(model)).cuda()
                 if torch.cuda.device_count() > 1 and train_config.enable_fsdp:
                     dist.all_reduce(grad_norm, op=dist.ReduceOp.SUM)
-                grad_norm = grad_norm.item() ** 2
+                grad_norm = grad_norm.item() ** 0.5
                 
                 # Now that we've calculated grad norm, we can zero the gradients
                 if (step + 1) % gradient_accumulation_steps == 0 or step == len(train_dataloader) - 1:
@@ -168,6 +221,8 @@ def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_sch
                 loss = loss / torch.cuda.device_count()
                 if rank == 0 and (step + 1) % train_config.logging_steps == 0:
                     metrics = {"train/train_loss:": loss, 
+                               "train/train_accuracy": acc,
+                               "train/train_other_tokens_loss": other_tokens_loss,
                                "train/train_perplexity": torch.exp(loss),
                                 "train/epoch": epoch_step,
                                 "train/global_step": total_steps,
@@ -178,13 +233,7 @@ def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_sch
                     
                 # Run validation
                 if train_config.run_validation and total_steps % train_config.val_steps == 0:
-                    eval_ppl, eval_epoch_loss, acc, acc_cot = evaluation(model, train_config, eval_dataloader, local_rank, tokenizer)
-                    val_loss.append(eval_epoch_loss)
-                    val_prep.append(eval_ppl)
-                    if eval_epoch_loss < best_val_loss:
-                        best_val_loss = eval_epoch_loss
-                    if (train_config.enable_fsdp and rank == 0) or not train_config.enable_fsdp:
-                        wandb.log({'eval/epoch': epoch_step, 'eval/global_step': total_steps, 'eval/epoch_loss': eval_epoch_loss, 'eval/perplexity': eval_ppl, 'eval/accuracy': acc, 'eval/accuracy_cot': acc_cot})
+                    eval_metrics = run_both_evals(eval_dataloaders, model, train_config, tokenizer, local_rank, rank, total_steps, epoch + ((step + 1) / n_steps_per_epoch))
                     
                 pbar.set_description(f"Training Epoch: {epoch+1}/{train_config.num_epochs}, step {step}/{len(train_dataloader)} completed (loss: {loss.detach().float()})")
             pbar.close()
@@ -198,9 +247,6 @@ def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_sch
         if train_config.enable_fsdp:
             train_epoch_loss = train_epoch_loss/world_size
         train_perplexity = torch.exp(train_epoch_loss)
-
-        train_prep.append(train_perplexity)
-        train_loss.append(train_epoch_loss)
 
         if train_config.enable_fsdp:
             if rank==0:
@@ -221,68 +267,59 @@ def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_sch
             lr_scheduler.step()
 
         if train_config.save_model:
-            checkpoint_start_time = time.perf_counter()
-            if train_config.enable_fsdp:
-                dist.barrier()
-            if train_config.use_peft:
+            eval_epoch_loss = float("inf")
+            if train_config.run_validation:
+                eval_metrics = run_both_evals(eval_dataloaders, model, train_config, tokenizer, local_rank, rank, total_steps, epoch + 1)
+                eval_epoch_loss = eval_metrics['eval/PYQ_2022_epoch_loss']
+            if eval_epoch_loss < best_val_loss:
+                best_val_loss = eval_epoch_loss
+                checkpoint_start_time = time.perf_counter()
                 if train_config.enable_fsdp:
-                    if rank==0:
+                    dist.barrier()
+                if train_config.use_peft:
+                    if train_config.enable_fsdp:
+                        if rank==0:
+                            print(f"we are about to save the PEFT modules")
+                    else:
                         print(f"we are about to save the PEFT modules")
-                else:
-                    print(f"we are about to save the PEFT modules")
-                model.save_pretrained(train_config.output_dir)
-                if train_config.enable_fsdp:
-                    if rank==0:
+                    model.save_pretrained(train_config.output_dir)
+                    if train_config.enable_fsdp:
+                        if rank==0:
+                            print(f"PEFT modules are saved in {train_config.output_dir} directory")
+                    else:
                         print(f"PEFT modules are saved in {train_config.output_dir} directory")
+
                 else:
-                    print(f"PEFT modules are saved in {train_config.output_dir} directory")
-
-            else:
-                if not train_config.use_peft and fsdp_config.checkpoint_type == StateDictType.FULL_STATE_DICT:
-                    save_model_checkpoint(
-                        model, optimizer, rank, train_config, epoch=epoch
-                    )
-                elif not train_config.use_peft and fsdp_config.checkpoint_type == StateDictType.SHARDED_STATE_DICT:
-                    print(" Saving the FSDP model checkpoints using SHARDED_STATE_DICT")
-                    print("=====================================================")
-
-                    save_model_and_optimizer_sharded(model, rank, train_config, epoch)
-                    if train_config.save_optimizer:
-                        save_model_and_optimizer_sharded(model, rank, train_config, epoch, optim=optimizer)
-                        print(" Saving the FSDP model checkpoints and optimizer using SHARDED_STATE_DICT")
+                    if not train_config.use_peft and fsdp_config.checkpoint_type == StateDictType.FULL_STATE_DICT:
+                        save_model_checkpoint(
+                            model, optimizer, rank, train_config, epoch=epoch
+                        )
+                    elif not train_config.use_peft and fsdp_config.checkpoint_type == StateDictType.SHARDED_STATE_DICT:
+                        print(" Saving the FSDP model checkpoints using SHARDED_STATE_DICT")
                         print("=====================================================")
 
-                if not train_config.use_peft and  train_config.save_optimizer:
-                    save_optimizer_checkpoint(
-                        model, optimizer, rank, train_config, epoch=epoch
-                    )
-                    print(" Saving the FSDP model checkpoints and optimizer using FULL_STATE_DICT")
-                    print("=====================================================")
-            if train_config.enable_fsdp:
-                dist.barrier()
-            checkpoint_end_time = time.perf_counter() - checkpoint_start_time
-            checkpoint_times.append(checkpoint_end_time)
+                        save_model_and_optimizer_sharded(model, rank, train_config, epoch)
+                        if train_config.save_optimizer:
+                            save_model_and_optimizer_sharded(model, rank, train_config, epoch, optim=optimizer)
+                            print(" Saving the FSDP model checkpoints and optimizer using SHARDED_STATE_DICT")
+                            print("=====================================================")
+
+                    if not train_config.use_peft and  train_config.save_optimizer:
+                        save_optimizer_checkpoint(
+                            model, optimizer, rank, train_config, epoch=epoch
+                        )
+                        print(" Saving the FSDP model checkpoints and optimizer using FULL_STATE_DICT")
+                        print("=====================================================")
+                if train_config.enable_fsdp:
+                    dist.barrier()
+                checkpoint_end_time = time.perf_counter() - checkpoint_start_time
+                checkpoint_times.append(checkpoint_end_time)
 
         if train_config.enable_fsdp:
             if rank==0:
                 print(f"Epoch {epoch+1}: train_perplexity={float(train_perplexity):.4f}, train_epoch_loss={float(train_epoch_loss):.4f}, epoch time {float(epoch_end_time)}s")
         else:
             print(f"Epoch {epoch+1}: train_perplexity={float(train_perplexity):.4f}, train_epoch_loss={float(train_epoch_loss):.4f}, epoch time {float(epoch_end_time)}s")
-    avg_epoch_time = sum(epoch_times)/ len(epoch_times)
-    avg_checkpoint_time = sum(checkpoint_times)/ len(checkpoint_times) if len(checkpoint_times) > 0 else 0
-    avg_train_prep = sum(train_prep)/len(train_prep)
-    avg_train_loss = sum(train_loss)/len(train_loss)
-    if train_config.run_validation:
-        avg_eval_prep = sum(val_prep)/len(val_prep)
-        avg_eval_loss = sum(val_loss)/len(val_loss)
-
-    results['avg_train_prep'] = avg_train_prep
-    results['avg_train_loss'] = avg_train_loss
-    if train_config.run_validation:
-        results['avg_eval_prep'] = avg_eval_prep
-        results['avg_eval_loss'] = avg_eval_loss
-    results["avg_epoch_time"] = avg_epoch_time
-    results["avg_checkpoint_time"] = avg_checkpoint_time
 
     #saving the training params including fsdp setting for reference.
     if train_config.enable_fsdp and not train_config.use_peft:
@@ -290,8 +327,20 @@ def train(model, train_dataloader, eval_dataloader, tokenizer, optimizer, lr_sch
         
     if train_config.enable_fsdp and rank == 0:
         wandb.finish()
+        
+def find_matching_index(list1, list2):
+    """
+    Function to find the first index in list1 (working from the end back to the left)
+    where one of its numbers equals a number in list2.
 
-    return results
+    :param list1: The first list of numbers.
+    :param list2: The second list of numbers.
+    :return: The index in list1 where a match is found, or None if no match is found.
+    """
+    for i in range(len(list1) - 1, -1, -1):
+        if list1[i] in list2:
+            return i
+    return None
 
 def evaluation(model, train_config, eval_dataloader, local_rank, tokenizer):
     """
@@ -308,11 +357,100 @@ def evaluation(model, train_config, eval_dataloader, local_rank, tokenizer):
     if train_config.enable_fsdp:
         world_size = int(os.environ["WORLD_SIZE"])
     model.eval()
-    eval_preds = []
     num_correct = 0
-    num_correct_cot = 0
     total_pred = 0
     eval_loss = 0.0  # Initialize evaluation loss
+    eval_other_tokens_loss = 0.0
+    probs_ratio = 0.0
+
+    # For calculating Accuracy:
+    a_tok = tokenizer.encode("(a)")[-2]
+    b_tok = tokenizer.encode("(b)")[-2]
+    c_tok = tokenizer.encode("(c)")[-2]
+    d_tok = tokenizer.encode("(d)")[-2]
+    ans_toks = [a_tok, b_tok, c_tok, d_tok]
+
+    
+    with MemoryTrace() as memtrace:
+        for step, batch in enumerate(tqdm(eval_dataloader,colour="green", desc="evaluating Epoch", dynamic_ncols=True)):
+            for key in batch.keys():
+                if train_config.enable_fsdp:
+                    batch[key] = batch[key].to(local_rank)
+                else:
+                    batch[key] = batch[key].to('cuda:0')
+            # Ensure no gradients are computed for this scope to save memory
+            with torch.no_grad():
+                # Forward pass and compute loss
+                outputs = model(**batch)
+                loss = outputs.loss
+                eval_loss += loss.detach().float()
+            ans_2_idx = {"a": 0, "b": 1, "c": 2, "d": 3}
+            labels = []
+            for i in range(batch['labels'].shape[0]):
+                labels_list = batch['labels'][i].tolist()
+                label_idx = find_matching_index(labels_list, ans_toks)
+                label = labels_list[label_idx]
+                labels.append(label)
+                correct_ans = tokenizer.decode(label)
+                correct_ans = ans_2_idx[correct_ans]
+                logprobs = torch.nn.functional.log_softmax(outputs.logits[i, label_idx - 1, :], dim=0)
+                ans_logits = [logprobs[a_tok].item(), logprobs[b_tok].item(), logprobs[c_tok].item(), logprobs[d_tok].item()]
+                eval_other_tokens_loss -= sum(ans_logits) + ans_logits[correct_ans]
+                correct_ans_logprob = ans_logits[correct_ans]
+                max_logprob = max(ans_logits)
+                model_ans = ans_logits.index(max_logprob)
+                ans_logits.sort(reverse=True)
+                if model_ans == correct_ans:
+                    num_correct += 1 
+                    probs_ratio += 1.0             
+                else:
+                    probs_ratio += math.exp(correct_ans_logprob - max_logprob)
+            total_pred += len(batch['input_ids'])
+    # If there's more than one CUDA device, reduce evaluation loss across all devices
+    if torch.cuda.device_count() > 1 and train_config.enable_fsdp:
+        dist.all_reduce(eval_loss, op=dist.ReduceOp.SUM)
+
+    # Compute average loss and perplexity
+    eval_epoch_loss = eval_loss / len(eval_dataloader)
+    if train_config.enable_fsdp:
+        eval_epoch_loss = eval_epoch_loss/world_size
+    eval_ppl = torch.exp(eval_epoch_loss)
+
+    # Compute accuracy
+    num_correct = torch.tensor(num_correct).cuda()
+    total_pred = torch.tensor(total_pred).cuda()
+    eval_other_tokens_loss = torch.tensor(eval_other_tokens_loss).cuda()
+    probs_ratio = torch.tensor(probs_ratio).cuda()
+    if torch.cuda.device_count() > 1 and train_config.enable_fsdp:
+        dist.all_reduce(num_correct, op=dist.ReduceOp.SUM)
+        dist.all_reduce(total_pred, op=dist.ReduceOp.SUM)
+        dist.all_reduce(eval_other_tokens_loss, op=dist.ReduceOp.SUM)
+        dist.all_reduce(probs_ratio, op=dist.ReduceOp.SUM)
+    acc = num_correct.item() / total_pred.item()
+    eval_other_tokens_loss = eval_other_tokens_loss.item() / total_pred.item()
+    if total_pred.item() - num_correct.item() > 0:
+        probs_ratio = probs_ratio.item() / (total_pred.item() - num_correct.item())
+    else:
+        probs_ratio = 0.0
+
+    return eval_ppl, eval_epoch_loss, acc, eval_other_tokens_loss, probs_ratio
+
+def evaluation_CoT(model, train_config, eval_dataloader, local_rank, tokenizer):
+    """
+    Evaluates the model on the given dataloader
+
+    Args:
+        model: The model to evaluate
+        eval_dataloader: The dataloader containing the evaluation data
+        local_rank: The rank of the current node in a distributed setting
+        tokenizer: The tokenizer used to decode predictions
+
+    Returns: eval_ppl, eval_epoch_loss
+    """
+    model.eval()
+    num_correct = 0
+    cot_preds = {}
+    total_pred = 0
     
     # For calculating Accuracy:
     a_tok = tokenizer.encode("(a)")[-2]
@@ -328,74 +466,45 @@ def evaluation(model, train_config, eval_dataloader, local_rank, tokenizer):
                     batch[key] = batch[key].to(local_rank)
                 else:
                     batch[key] = batch[key].to('cuda:0')
-            # Ensure no gradients are computed for this scope to save memory
-            if train_config.val_method == "logits":
-                with torch.no_grad():
-                    # Forward pass and compute loss
-                    outputs = model(**batch)
-                    loss = outputs.loss
-                    eval_loss += loss.detach().float()
-                # Decode predictions and add to evaluation predictions list
-                preds = torch.argmax(outputs.logits, -1)
-                output_str = tokenizer.batch_decode(preds.detach().cpu().numpy(), skip_special_tokens=True)
-                eval_preds.extend(output_str)
-                ans_2_idx = {"a": 0, "b": 1, "c": 2, "d": 3}
-                labels = batch['labels']
-                if (type(labels) != list and len(labels.shape) == 2) or (type(labels) == list and type(labels[0]) == list):
-                    labels = labels[0, :]
-                correct_ans = tokenizer.decode(labels[-3])
-                correct_ans = ans_2_idx[correct_ans]
-                if len(outputs.logits.shape) == 3 and outputs.logits.shape[0] == 1:
-                    ans_logits = [outputs.logits[0, -4, a_tok].item(), outputs.logits[0, -4, b_tok].item(), outputs.logits[0, -4, c_tok].item(), outputs.logits[0, -4, d_tok].item()]
-                else:
-                    ans_logits = [outputs.logits[-4, a_tok].item(), outputs.logits[-4, b_tok].item(), outputs.logits[-4, c_tok].item(), outputs.logits[-4, d_tok].item()]
-                if ans_logits.index(max(ans_logits)) == correct_ans:
-                    num_correct += 1
-            else:
-                # CoT Eval
-                with torch.no_grad():
-                    # Forward pass and compute loss
-                    outputs = model.generate(input_ids=batch['input_ids'], attention_mask=batch['attention_mask'], do_sample=False, return_dict_in_generate=False, max_new_tokens=250)
-                    if len(outputs.shape) > 1:
-                        outputs = outputs[0]
-                    output_str = tokenizer.decode(outputs, skip_special_tokens=True)
-                    label = batch['labels']
-                    if (type(labels) != list and len(labels.shape) == 2) or (type(labels) == list and type(labels[0]) == list):
-                        label = label[0]
-                    ans_choices = ["(a)", "(b)", "(c)", "(d)"]
-                    correct_ans = ans_choices[label[-3]]
-                    if correct_ans in output_str[-100:]:
-                        num_correct_cot += 1
-            total_pred += 1
-    # If there's more than one CUDA device, reduce evaluation loss across all devices
-    if torch.cuda.device_count() > 1 and train_config.enable_fsdp:
-        dist.all_reduce(eval_loss, op=dist.ReduceOp.SUM)
-
-    # Compute average loss and perplexity
-    eval_epoch_loss = eval_loss / len(eval_dataloader)
-    if train_config.enable_fsdp:
-        eval_epoch_loss = eval_epoch_loss/world_size
-    eval_ppl = torch.exp(eval_epoch_loss)
+            labels = []
+            for i in range(batch['labels'].shape[0]):
+                label_idx = (batch['labels'][i] != -100).nonzero()[0].item()
+                label = batch['labels'][i][label_idx].item()
+                labels.append(label)
+            with torch.no_grad():
+                # Summon Model Prams w/ dummy forward
+                dummy_in = torch.ones_like(batch['input_ids']).to(local_rank)
+                dummy_mask = torch.ones_like(batch['attention_mask']).to(local_rank)
+                model(input_ids=dummy_in, attention_mask=dummy_mask)
+                outputs = model.generate(batch['input_ids'], do_sample=False, return_dict_in_generate=False, max_new_tokens=250)
+                input_strs = tokenizer.batch_decode(batch['input_ids'], skip_special_tokens=True)
+                output_strs = tokenizer.batch_decode(outputs, skip_special_tokens=True)
+                output_strs = [output_strs[i].replace(input_strs[i], '') for i in range(len(input_strs))]
+                cot_preds.update({input_strs[i]: output_strs[i] for i in range(len(input_strs))})
+                ans_choices = {a_tok: "(a)", b_tok: "(b)", c_tok: "(c)", d_tok: "(d)"}
+                for i in range(len(labels)):
+                    correct_ans = ans_choices[label]
+                    output_ans = output_strs[i].split("Answer:")[-1]
+                    if correct_ans in output_ans:
+                        num_correct += 1
+            total_pred += len(batch['input_ids'])
     
     # Compute accuracy
     num_correct = torch.tensor(num_correct).cuda()
-    num_correct_cot = torch.tensor(num_correct_cot).cuda()
     total_pred = torch.tensor(total_pred).cuda()
     if torch.cuda.device_count() > 1 and train_config.enable_fsdp:
         dist.all_reduce(num_correct, op=dist.ReduceOp.SUM)
-        dist.all_reduce(num_correct_cot, op=dist.ReduceOp.SUM)
         dist.all_reduce(total_pred, op=dist.ReduceOp.SUM)
     acc = num_correct.item() / total_pred.item()
-    acc_cot = num_correct_cot.item() / total_pred.item()
+    
+    all_cot_preds = [None for _ in range(dist.get_world_size())]
+    combined_cot_preds = {}
+    dist.all_gather_object(all_cot_preds, cot_preds)
+    for d in all_cot_preds:
+        combined_cot_preds.update(d)
+    cot_preds = combined_cot_preds
 
-    # Print evaluation metrics
-    if train_config.enable_fsdp:
-        if local_rank==0:
-            print(f" {eval_ppl=} {eval_epoch_loss=}")
-    else:
-        print(f" {eval_ppl=} {eval_epoch_loss=}")
-
-    return eval_ppl, eval_epoch_loss, acc, acc_cot
+    return acc, cot_preds
 
 def freeze_transformer_layers(model, num_layer):
    for i, layer in enumerate(model.model.layers):
@@ -412,13 +521,16 @@ def check_frozen_layers_peft_model(model):
 
 def setup():
     """Initialize the process group for distributed training"""
-    dist.init_process_group("nccl")
+    dist.init_process_group("nccl", timeout=datetime.timedelta(seconds=2800))
+    # os.environ["NCCL_ASYNC_ERROR_HANDLING"] = str(1)
+    os.environ["NCCL_BLOCKING_WAIT"] = str(1)
 
 
 def setup_environ_flags(rank):
     """Set environment flags for debugging purposes"""
     os.environ["TORCH_SHOW_CPP_STACKTRACES"] = str(1)
-    os.environ["NCCL_ASYNC_ERROR_HANDLING"] = str(1)
+    # os.environ["NCCL_ASYNC_ERROR_HANDLING"] = str(1)
+    os.environ["NCCL_BLOCKING_WAIT"] = str(1)
     # os.environ["TORCH_DISTRIBUTED_DEBUG"] = "DETAIL"
     # This flag will help with CUDA memory fragmentations that can lead into OOM in some cases.
     # Note this is only availble in PyTorch Nighlies (as of July 30 2023)

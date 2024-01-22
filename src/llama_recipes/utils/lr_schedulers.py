@@ -11,6 +11,8 @@ def _get_cosine_schedule_with_warmup_lr_lambda(
     min_lr = peak_lr / decay_factor  # Minimum learning rate
     max_lr = peak_lr  # Maximum learning rate
     scale = max_lr - min_lr
+    
+    current_step = current_step % num_training_steps
 
     # Linear warmup
     if current_step < num_warmup_steps:
